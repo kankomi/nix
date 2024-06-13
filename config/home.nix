@@ -1,10 +1,7 @@
 { config, pkgs, lib, user, ... }:
 
 {
-  imports = [ (import ../modules/dev/tmux) ]
-  ++ [ (import ../modules/dev/nvim) ]
-  ++ [ (import ../modules/dev/git) ]
-  ++ [ (import ../modules/dev/zsh) ];
+  imports = [ (import ../modules) ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
