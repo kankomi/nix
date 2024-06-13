@@ -19,7 +19,7 @@
    oh-my-posh = {
        enable = true;
        enableZshIntegration = true;
-       useTheme = "catppuccin_moccha";
+       useTheme = "catppuccin_mocha";
      };
    };
 }
