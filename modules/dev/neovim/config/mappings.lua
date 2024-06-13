@@ -1,3 +1,4 @@
+vim.g.mapleader = ' '
 -- basic
 vim.api.nvim_set_keymap('n', '<Esc>', '<cmd>nohlsearch<cr>', { noremap = true, silent = true })
 
