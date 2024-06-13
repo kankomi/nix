@@ -5,7 +5,7 @@
   programs.gnome-shell = {
     enable = true;
     extensions = [
-      { package = pkgs.gnomeExtensions.dash-to-panel; }
+      { package = pkgs.gnomeExtensions.dash-to-dock; }
     ];
   };
 }
