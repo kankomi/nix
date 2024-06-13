@@ -21,6 +21,7 @@ in {
   ];
   programs = {
     neovim = {
+      globals.mapleader = " ";
       plugins = [
         ## Theme
         {
