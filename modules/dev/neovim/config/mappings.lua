@@ -1,5 +1,5 @@
 -- basic
-vim.api.nvim_set_keymap('n', '<Esc>', '<cmd>nohlsearch<cr>')
+vim.api.nvim_set_keymap('n', '<Esc>', '<cmd>nohlsearch<cr>', { noremap = true, silent = true })
 
 -- lazygit
 vim.api.nvim_set_keymap('n', '<leader>lg', '<cmd>LazyGit<cr>', { noremap = true, silent = true })

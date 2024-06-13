@@ -15,8 +15,9 @@
     };
 in {
   home.packages = with pkgs; [
-    vscode-extensions.ms-vscode.cpptools
-    vscode-extensions.vadimcn.vscode-lldb
+    nixpkgs-fmt
+    nodePackages.vim-language-server
+    lua-language-server
   ];
   programs = {
     neovim = {
