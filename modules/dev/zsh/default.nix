@@ -10,9 +10,9 @@
       shellAliases = {
         tm = "tmux";
         v = "nvim";
-        ns = "sudo nixos-rebuild switch --flake /etc/nixos/#default";
-        nt = "sudo nixos-rebuild test --flake /etc/nixos/#default";
-        hs = "home-manager switch -f /etc/nixos/hosts/default/home.nix";
+        lg = "lazygit";
+        ns = "sudo nixos-rebuild switch --flake ~/nix-setup#default";
+        nt = "sudo nixos-rebuild test --flake ~/nix-setup#default";
       };
    };
    oh-my-posh = {
