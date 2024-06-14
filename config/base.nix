@@ -73,6 +73,12 @@
     layout = "de";
     variant = "";
   };
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [
+    pkgs.xdg-desktop-portal-gtk
+  ];
+
+  hardware.opengl.enable = true;
 
   # Configure console keymap
   console.keyMap = "de";
