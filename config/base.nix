@@ -9,7 +9,7 @@
 
   nix = {
     package = pkgs.nixFlakes;
-    settings.experimental-features = [ "nix-command" "flakes" ];
+    settings.experimental-features = ["nix-command" "flakes"];
     gc = {
       automatic = true;
       dates = "weekly";
@@ -48,7 +48,7 @@
       meslo-lg
       nerdfonts
       font-awesome
-      (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+      (nerdfonts.override {fonts = ["FiraCode" "DroidSansMono"];})
     ];
 
     fontconfig = {
@@ -57,7 +57,6 @@
       };
     };
   };
-
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -70,9 +69,9 @@
   ];
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "de";
-    xkbVariant = "";
+    variant = "";
   };
 
   # Configure console keymap
@@ -94,7 +93,7 @@
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
+  # services.xserver.libinput.enable = true;
 
   # firewall
   networking.firewall.enable = false;
