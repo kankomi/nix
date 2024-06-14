@@ -22,6 +22,12 @@ in {
   programs = {
     neovim = {
       plugins = [
+        pkgs.vimPlugins.which-key-nvim
+        {
+          plugin = pkgs.vimPlugins.conform-nvim;
+          config = builtins.readFile ./config/setup/conform.lua;
+          type = "lua";
+        }
         ## Theme
         {
           plugin = pkgs.vimPlugins.tokyonight-nvim;
