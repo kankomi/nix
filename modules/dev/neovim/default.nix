@@ -15,7 +15,9 @@
     };
 in {
   home.packages = with pkgs; [
-    nixpkgs-fmt
+    alejandra
+    # nixpkgs-fmt
+    stylua
     nodePackages.vim-language-server
     lua-language-server
   ];
@@ -23,7 +25,7 @@ in {
     neovim = {
       plugins = [
         {
-          plugin =  pkgs.vimPlugins.neo-tree-nvim;
+          plugin = pkgs.vimPlugins.neo-tree-nvim;
           config = builtins.readFile ./config/setup/neo-tree.lua;
           type = "lua";
         }
@@ -64,7 +66,7 @@ in {
           type = "lua";
         }
         pkgs.vimPlugins.telescope-fzf-native-nvim
-        pkgs.vimPlugins.harpoon
+        # pkgs.vimPlugins.harpoon
 
         ## cmp
         {
