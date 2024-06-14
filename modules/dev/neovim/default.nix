@@ -30,6 +30,7 @@ in {
           type = "lua";
         }
         pkgs.vimPlugins.nui-nvim
+        pkgs.vimPlugins.vim-tmux-navigator
         pkgs.vimPlugins.which-key-nvim
         {
           plugin = pkgs.vimPlugins.conform-nvim;
