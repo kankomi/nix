@@ -22,6 +22,12 @@ in {
   programs = {
     neovim = {
       plugins = [
+        {
+          plugin =  pkgs.vimPlugins.neo-tree-nvim;
+          config = builtins.readFile ./config/setup/neo-tree.lua;
+          type = "lua";
+        }
+        pkgs.vimPlugins.nui-nvim
         pkgs.vimPlugins.which-key-nvim
         {
           plugin = pkgs.vimPlugins.conform-nvim;
