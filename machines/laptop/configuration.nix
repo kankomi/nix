@@ -9,8 +9,20 @@
     ./hardware-configuration.nix
     ../../config/base.nix
     ../../config/users.nix
-    #../../modules/dev.nix
   ];
+
+  nixpkgs.overlays = [
+    (self: super: {
+      waybar = super.waybar.overrideAttrs (oldAttrs: {
+        mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
+      });
+    })
+  ];
+
+  # programs.hyprland = {
+  #   enable = true;
+  #   package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+  # };
 
   networking.hostName = "laptop"; # Define your hostname.
   hardware.bluetooth.enable = true;

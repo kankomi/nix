@@ -1,7 +1,12 @@
-{ config, pkgs, lib, user, ... }:
-
 {
-  imports = [ (import ../modules) ];
+  config,
+  pkgs,
+  lib,
+  user,
+  inputs,
+  ...
+}: {
+  imports = [(import ../modules)];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -10,7 +15,6 @@
   # manage.
   home.username = "${user}";
   home.homeDirectory = "/home/${user}";
-
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
