@@ -32,6 +32,7 @@
     xclip
 
     brave
+    obsidian
 
     vlc
 
