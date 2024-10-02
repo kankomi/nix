@@ -30,5 +30,8 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
+  system.autoUpgrade.enable = true;
+  system.autoUpgrade.allowReboot = false;
+
   system.stateVersion = "24.05"; # Did you read the comment?
 }
