@@ -20,6 +20,8 @@ in {
     stylua
     nodePackages.vim-language-server
     lua-language-server
+    gopls
+    gofumpt
   ];
   programs = {
     neovim = {
@@ -29,6 +31,7 @@ in {
           config = builtins.readFile ./config/setup/neo-tree.lua;
           type = "lua";
         }
+        pkgs.vimPlugins.go-nvim
         pkgs.vimPlugins.nui-nvim
         pkgs.vimPlugins.vim-tmux-navigator
         pkgs.vimPlugins.which-key-nvim

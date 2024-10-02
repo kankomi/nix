@@ -40,6 +40,13 @@
 
     # Dev
     lazygit
+    go
+    gnumake
+    nodejs_22
+
+    #go
+    templ
+    air
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
