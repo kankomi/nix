@@ -48,6 +48,7 @@
       meslo-lg
       nerdfonts
       font-awesome
+      fira-code
       (nerdfonts.override {fonts = ["FiraCode" "DroidSansMono"];})
     ];
 
@@ -73,7 +74,7 @@
     layout = "de";
     variant = "";
   };
-  # xdg.portal.enable = true;
+  xdg.portal.enable = true;
   # xdg.portal.extraPortals = [
   #   pkgs.xdg-desktop-portal-gtk
   # ];

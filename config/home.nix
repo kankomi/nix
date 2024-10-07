@@ -30,6 +30,8 @@
     tree
     neofetch
     xclip
+    stow
+    killall
 
     brave
     obsidian
