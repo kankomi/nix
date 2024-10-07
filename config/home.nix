@@ -35,6 +35,7 @@
 
     brave
     obsidian
+    discord
 
     vlc
 

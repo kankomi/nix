@@ -29,6 +29,7 @@
     settings = {
       "$mod" = "SUPER";
       "$filemanager" = "nautilus";
+      "$terminal" = "alacritty";
 
       general = {
         border_size = 2;
@@ -67,7 +68,7 @@
 
       bind =
         [
-          "$mod, Q, exec, kitty"
+          "$mod, Q, exec, alacritty"
           "$mod, F, fullscreen"
           "$mod, SPACE, exec, rofi -show drun"
           "$mod, R, exec, $menu"
@@ -82,7 +83,10 @@
           "$mod, L, movefocus, r"
           "$mod, K, movefocus, u"
           "$mod, J, movefocus, d"
-          "$mod, J, movefocus, d"
+          "$mod SHIFT, H, movewindow, l"
+          "$mod SHIFT, L, movewindow, r"
+          "$mod SHIFT, K, movewindow, u"
+          "$mod SHIFT, J, movewindow, d"
           # "$mod, left, move, l"
           # "$mod, right, move, r"
           # "$mod, up, move, u"
