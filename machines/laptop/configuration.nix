@@ -11,6 +11,11 @@
     ../../config/users.nix
   ];
 
+  # Hyprland
+  programs.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+  };
   nixpkgs.overlays = [
     (self: super: {
       waybar = super.waybar.overrideAttrs (oldAttrs: {
@@ -19,10 +24,7 @@
     })
   ];
 
-  # programs.hyprland = {
-  #   enable = true;
-  #   package = inputs.hyprland.packages."${pkgs.system}".hyprland;
-  # };
+  services.xserver.displayManager.gdm.wayland = true;
 
   networking.hostName = "laptop"; # Define your hostname.
   hardware.bluetooth.enable = true;
