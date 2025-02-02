@@ -35,6 +35,8 @@ in {
         pkgs.vimPlugins.nui-nvim
         pkgs.vimPlugins.vim-tmux-navigator
         pkgs.vimPlugins.which-key-nvim
+        pkgs.vimPlugins.rustaceanvim
+        pkgs.vimPlugins.rust-tools-nvim
         {
           plugin = pkgs.vimPlugins.conform-nvim;
           config = builtins.readFile ./config/setup/conform.lua;
@@ -209,49 +211,49 @@ in {
           config = builtins.readFile ./config/setup/dap.lua;
           type = "lua";
         }
-        # {
-        #   plugin = pkgs.vimPlugins.rustaceanvim;
-        #   config = ''
-        #     vim.g.rustaceanvim = {
-        #       -- Plugin configuration
-        #       tools = {
-        #       },
-        #       -- LSP configuration
-        #       server = {
-        #         on_attach = function(client, bufnr)
-        #           -- you can also put keymaps in here
-        #         end,
-        #         settings = {
-        #           -- rust-analyzer language server configuration
-        #           ['rust-analyzer'] = {
-        #            cargo = {
-        #               allFeatures = true,
-        #               loadOutDirsFromCheck = true,
-        #               runBuildScripts = true,
-        #             },
-        #             checkOnSave = {
-        #               allFeatures = true,
-        #               command = "clippy",
-        #               extraArgs = { "--no-deps" },
-        #             },
-        #             procMacro = {
-        #               enable = true,
-        #               ignored = {
-        #                 ["async-trait"] = { "async_trait" },
-        #                 ["napi-derive"] = { "napi" },
-        #                 ["async-recursion"] = { "async_recursion" },
-        #               },
-        #             },
-        #           },
-        #         },
-        #       },
-        #       -- DAP configuration
-        #       dap = {
-        #       },
-        #     }
-        #   '';
-        #   type = "lua";
-        # }
+        {
+          plugin = pkgs.vimPlugins.rustaceanvim;
+          config = ''
+            vim.g.rustaceanvim = {
+              -- Plugin configuration
+              tools = {
+              },
+              -- LSP configuration
+              server = {
+                on_attach = function(client, bufnr)
+                  -- you can also put keymaps in here
+                end,
+                settings = {
+                  -- rust-analyzer language server configuration
+                  ['rust-analyzer'] = {
+                   cargo = {
+                      allFeatures = true,
+                      loadOutDirsFromCheck = true,
+                      runBuildScripts = true,
+                    },
+                    checkOnSave = {
+                      allFeatures = true,
+                      command = "clippy",
+                      extraArgs = { "--no-deps" },
+                    },
+                    procMacro = {
+                      enable = true,
+                      ignored = {
+                        ["async-trait"] = { "async_trait" },
+                        ["napi-derive"] = { "napi" },
+                        ["async-recursion"] = { "async_recursion" },
+                      },
+                    },
+                  },
+                },
+              },
+              -- DAP configuration
+              dap = {
+              },
+            }
+          '';
+          type = "lua";
+        }
       ];
 
       extraLuaConfig = ''

@@ -4,10 +4,11 @@
   ...
 }: {
   programs = {
-   zsh = {
+    zsh = {
       enable = true;
       enableCompletion = true;
       autosuggestion.enable = true;
+      syntaxHighlighting.enable = true;
       shellAliases = {
         tm = "tmux";
         v = "nvim";
@@ -15,11 +16,15 @@
         ns = "sudo nixos-rebuild switch --flake ~/nix-setup#default";
         nt = "sudo nixos-rebuild test --flake ~/nix-setup#default";
       };
-   };
-   oh-my-posh = {
-       enable = true;
-       enableZshIntegration = true;
-       useTheme = "catppuccin_mocha";
-     };
-   };
+      # oh-my-zsh = {
+      #   enable = true;
+      #   theme = "catppuccin_mocha";
+      # };
+    };
+    oh-my-posh = {
+      enable = true;
+      enableZshIntegration = true;
+      useTheme = "catppuccin_mocha";
+    };
+  };
 }

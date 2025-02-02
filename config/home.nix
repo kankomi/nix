@@ -47,6 +47,9 @@
     go
     gnumake
     nodejs_22
+    gcc
+    rustc
+    rustup
 
     #go
     templ
@@ -71,6 +74,9 @@
   home.sessionVariables = {
     EDITOR = "nvim";
   };
+  home.sessionPath = [
+    "~/.cargo/bin"
+  ];
 
   home.stateVersion = "23.11"; # Please read the comment before changing.
 }
