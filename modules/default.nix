@@ -5,5 +5,6 @@
     ++ [(import ../modules/dev/tmux)]
     ++ [(import ../modules/dev/zsh)]
     ++ [(import ../modules/hyprland)]
+    ++ [(import ../modules/apps/trezor)]
     ++ [(import ../modules/gnome)];
 }
