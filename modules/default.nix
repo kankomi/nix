@@ -6,5 +6,6 @@
     ++ [(import ../modules/dev/zsh)]
     ++ [(import ../modules/hyprland)]
     ++ [(import ../modules/apps/trezor)]
+    ++ [(import ../modules/apps/usb)]
     ++ [(import ../modules/gnome)];
 }
