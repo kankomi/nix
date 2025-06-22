@@ -7,8 +7,6 @@
   pkgs-davinci,
   ...
 }: {
-  imports = [(import ../modules)];
-
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
@@ -33,43 +31,9 @@
     xclip
     stow
     killall
-    gparted
-
-    brave
-    obsidian
-    discord
-
-    vlc
-
-    # pkgs.davinci-resolve-studio
 
     unzip
     rsync
-
-    # Usb autoload
-    udisks2
-    # gvfs
-    gnome.gvfs
-    jmtpfs
-    libmtp
-    mtpfs
-    gphoto2
-    gphoto2fs
-    libgphoto2
-    darktable
-
-    # Dev
-    lazygit
-    go
-    gnumake
-    nodejs_22
-    gcc
-    rustc
-    rustup
-
-    #go
-    templ
-    air
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -91,7 +55,6 @@
     EDITOR = "nvim";
   };
   home.sessionPath = [
-    "~/.cargo/bin"
   ];
 
   home.stateVersion = "23.11"; # Please read the comment before changing.

@@ -43,12 +43,6 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-  # USB setup
-  services.devmon.enable = true;
-  services.udisks2.enable = true;
-  services.gvfs.enable = true;
-  boot.kernelModules = ["fuse"];
-
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
@@ -67,45 +61,11 @@
     };
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
-  environment.systemPackages = with pkgs; [
-    gnome-tweaks
-  ];
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "de";
-    variant = "";
-  };
-  xdg.portal.enable = true;
-  # xdg.portal.extraPortals = [
-  #   pkgs.xdg-desktop-portal-gtk
-  # ];
-
-  hardware.graphics.enable = true;
-
   # Configure console keymap
   console.keyMap = "de";
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-  };
+  services.printing.enable = false;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -115,7 +75,4 @@
 
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
-
-  #trezor
-  services.udev.packages = with pkgs; [trezor-udev-rules];
 }
