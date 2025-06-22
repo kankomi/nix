@@ -2,18 +2,15 @@
   config,
   pkgs,
   lib,
-  user,
   inputs,
   pkgs-davinci,
   home,
   ...
 }: {
   imports =
-    [(import ../dots/dev/git)]
-    ++ [(import ../dots/dev/neovim)]
-    ++ [(import ../dots/dev/tmux)]
-    ++ [(import ../dots/dev/zsh)]
-    ++ [(import ../dots/dev/btop)]
+    [(import ../dots/dev)]
+    ++ [(import ../dots/zsh)]
+    ++ [(import ../dots/btop)]
     ++ [(import ../dots/apps/usb)]
     ++ [(import ../dots/gnome)];
 
@@ -22,8 +19,8 @@
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "${user}";
-  home.homeDirectory = "/home/${user}";
+  home.username = "grop";
+  home.homeDirectory = "/home/grop";
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
