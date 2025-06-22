@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.api.nvim_set_keymap("n", "<C-s>", ":w<cr>", { desc = "Save File", silent = true })
 vim.api.nvim_set_keymap("n", "<C-n>", ":Neotree toggle<cr>", { desc = "Toggle Neotree", silent = true })
 -- basic
 vim.api.nvim_set_keymap("n", "<Esc>", "<cmd>nohlsearch<cr>", { noremap = true, silent = true })
