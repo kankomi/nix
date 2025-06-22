@@ -17,7 +17,6 @@
     mesa-demos
     vulkan-tools
     clinfo
-    gnome-tweaks
   ];
   services.dbus.enable = true;
   services.xserver.videoDrivers = ["amdgpu"];
