@@ -4,6 +4,7 @@
   lib,
   user,
   inputs,
+  pkgs-davinci,
   ...
 }: {
   imports = [(import ../modules)];
@@ -40,6 +41,8 @@
 
     vlc
 
+    pkgs.davinci-resolve-studio
+
     unzip
     rsync
 
@@ -47,14 +50,13 @@
     udisks2
     # gvfs
     gnome.gvfs
-    # gvfs-mtp
     jmtpfs
     libmtp
     mtpfs
-    # gvfs-gphoto2
     gphoto2
     gphoto2fs
     libgphoto2
+    darktable
 
     # Dev
     lazygit

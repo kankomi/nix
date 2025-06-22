@@ -10,7 +10,7 @@
   nix = {
     # package = pkgs.nixFlakes;
     # package = nixVersions.stable;
-    # settings.experimental-features = ["nix-command" "flakes"];
+    settings.experimental-features = ["nix-command" "flakes"];
     gc = {
       automatic = true;
       dates = "weekly";
@@ -53,7 +53,7 @@
     enableDefaultPackages = true;
     packages = with pkgs; [
       meslo-lg
-      nerdfonts
+      # nerdfonts
       font-awesome
       fira-code
       nerd-fonts.droid-sans-mono
