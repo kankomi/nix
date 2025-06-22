@@ -8,23 +8,14 @@
   home,
   ...
 }: {
-  # imports =
-  #   [(import ../modules/dev/git)]
-  #   ++ [(import ../modules/dev/neovim)]
-  #   ++ [(import ../modules/dev/tmux)]
-  #   ++ [(import ../modules/dev/zsh)]
-  #   ++ [(import ../modules/dev/btop)]
-  #   # ++ [(import ../modules/hyprland)]
-  #   ++ [(import ../modules/apps/usb)]
-  #   ++ [(import ../modules/gnome)];
-  imports = [
-    ./dots/dev/neovim
-    ./dots/dev/tmux
-    ./dots/dev/zsh
-    ./dots/dev/btop
-    ./dots/apps/usb
-    ./dots/gnome
-  ];
+  imports =
+    [(import ../dots/dev/git)]
+    ++ [(import ../dots/dev/neovim)]
+    ++ [(import ../dots/dev/tmux)]
+    ++ [(import ../dots/dev/zsh)]
+    ++ [(import ../dots/dev/btop)]
+    ++ [(import ../dots/apps/usb)]
+    ++ [(import ../dots/gnome)];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
