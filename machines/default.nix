@@ -26,9 +26,7 @@ in {
         home-manager.extraSpecialArgs = {
           inherit user inputs;
         };
-        home-manager.users.${user} = {
-          imports = [(import ../config/home.nix)];
-        };
+        home-manager.users.${user}.imports = [../home-manager/machines/laptop.nix];
       }
     ];
   };

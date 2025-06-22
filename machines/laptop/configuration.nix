@@ -7,7 +7,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../../home-manager/base.nix
+    ../../config/base.nix
     ../../config/users/grop.nix
   ];
 
@@ -17,8 +17,8 @@
     mesa-demos
     vulkan-tools
     clinfo
+    gnome-tweaks
   ];
-  # programs.hyprland.enable = true;
   services.dbus.enable = true;
   services.xserver.videoDrivers = ["amdgpu"];
   environment.variables = {
@@ -57,9 +57,6 @@
   # Enable the GNOME Desktop Environment.
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
-  environment.systemPackages = with pkgs; [
-    gnome-tweaks
-  ];
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -79,8 +76,6 @@
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
   };
-
-  hardware.graphics.enable = true;
 
   services.displayManager.gdm.wayland = true;
 

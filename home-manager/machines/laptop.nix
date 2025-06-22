@@ -5,8 +5,27 @@
   user,
   inputs,
   pkgs-davinci,
+  home,
   ...
 }: {
+  # imports =
+  #   [(import ../modules/dev/git)]
+  #   ++ [(import ../modules/dev/neovim)]
+  #   ++ [(import ../modules/dev/tmux)]
+  #   ++ [(import ../modules/dev/zsh)]
+  #   ++ [(import ../modules/dev/btop)]
+  #   # ++ [(import ../modules/hyprland)]
+  #   ++ [(import ../modules/apps/usb)]
+  #   ++ [(import ../modules/gnome)];
+  imports = [
+    ./dots/dev/neovim
+    ./dots/dev/tmux
+    ./dots/dev/zsh
+    ./dots/dev/btop
+    ./dots/apps/usb
+    ./dots/gnome
+  ];
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
@@ -34,6 +53,41 @@
 
     unzip
     rsync
+
+    brave
+    obsidian
+    discord
+
+    vlc
+
+    # pkgs.davinci-resolve-studio
+
+    unzip
+    rsync
+
+    # Usb autoload
+    udisks2
+    gnome.gvfs
+    jmtpfs
+    libmtp
+    mtpfs
+    gphoto2
+    gphoto2fs
+    libgphoto2
+    darktable
+
+    # Dev
+    lazygit
+    go
+    gnumake
+    nodejs_22
+    gcc
+    rustc
+    rustup
+
+    #go
+    templ
+    air
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
