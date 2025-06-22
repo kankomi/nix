@@ -8,8 +8,9 @@
   nixpkgs.config.allowUnfree = true;
 
   nix = {
-    package = pkgs.nixFlakes;
-    settings.experimental-features = ["nix-command" "flakes"];
+    # package = pkgs.nixFlakes;
+    # package = nixVersions.stable;
+    # settings.experimental-features = ["nix-command" "flakes"];
     gc = {
       automatic = true;
       dates = "weekly";
@@ -42,6 +43,12 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
+  # USB setup
+  services.devmon.enable = true;
+  services.udisks2.enable = true;
+  services.gvfs.enable = true;
+  boot.kernelModules = ["fuse"];
+
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
@@ -49,7 +56,8 @@
       nerdfonts
       font-awesome
       fira-code
-      (nerdfonts.override {fonts = ["FiraCode" "DroidSansMono"];})
+      nerd-fonts.droid-sans-mono
+      nerd-fonts.fira-code
     ];
 
     fontconfig = {
@@ -63,10 +71,10 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
   environment.systemPackages = with pkgs; [
-    gnome.gnome-tweaks
+    gnome-tweaks
   ];
 
   # Configure keymap in X11
@@ -79,7 +87,7 @@
   #   pkgs.xdg-desktop-portal-gtk
   # ];
 
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
 
   # Configure console keymap
   console.keyMap = "de";
@@ -88,7 +96,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -107,4 +115,7 @@
 
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
+
+  #trezor
+  services.udev.packages = with pkgs; [trezor-udev-rules];
 }

@@ -12,19 +12,19 @@
   ];
 
   # Hyprland
-  programs.hyprland = {
-    enable = true;
-    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
-  };
-  nixpkgs.overlays = [
-    (self: super: {
-      waybar = super.waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
-      });
-    })
-  ];
+  # programs.hyprland = {
+  #   enable = true;
+  #   package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+  # };
+  # nixpkgs.overlays = [
+  #   (self: super: {
+  #     waybar = super.waybar.overrideAttrs (oldAttrs: {
+  #       mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
+  #     });
+  #   })
+  # ];
 
-  services.xserver.displayManager.gdm.wayland = true;
+  services.displayManager.gdm.wayland = true;
 
   networking.hostName = "laptop"; # Define your hostname.
   hardware.bluetooth.enable = true;

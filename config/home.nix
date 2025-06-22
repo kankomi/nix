@@ -32,6 +32,7 @@
     xclip
     stow
     killall
+    gparted
 
     brave
     obsidian
@@ -41,6 +42,19 @@
 
     unzip
     rsync
+
+    # Usb autoload
+    udisks2
+    # gvfs
+    gnome.gvfs
+    # gvfs-mtp
+    jmtpfs
+    libmtp
+    mtpfs
+    # gvfs-gphoto2
+    gphoto2
+    gphoto2fs
+    libgphoto2
 
     # Dev
     lazygit
