@@ -8,6 +8,17 @@
     pkgs.git-credential-manager
   ];
 
+  programs.gh = {
+    enable = true;
+    settings = {
+      version = "1";
+      aliases = {
+        "as" = "auth status";
+        "al" = "auth login";
+      };
+    };
+  };
+
   programs.git = {
     enable = true;
     userName = "Patrick Gross";
