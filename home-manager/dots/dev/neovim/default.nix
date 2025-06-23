@@ -158,6 +158,11 @@ in {
           type = "lua";
         }
         {
+          plugin = pkgs.vimPlugins.sniprun;
+          config = "require('sniprun').setup()";
+          type = "lua";
+        }
+        {
           plugin = pkgs.vimPlugins.comment-nvim;
           config = "require('Comment').setup()";
           type = "lua";

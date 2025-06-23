@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.api.nvim_set_keymap("n", "<leader>x", ":q<cr>", { desc = "Quit Buffer", silent = true })
 vim.api.nvim_set_keymap("n", "<C-s>", ":w<cr>", { desc = "Save File", silent = true })
 vim.api.nvim_set_keymap("n", "<C-n>", ":Neotree toggle<cr>", { desc = "Toggle Neotree", silent = true })
 -- basic
@@ -40,21 +41,16 @@ vim.api.nvim_set_keymap(
 )
 
 -- lsp trouble
-vim.api.nvim_set_keymap("n", "<leader>tt", "<cmd>TroubleToggle document_diagnostics<cr>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>tw", "<cmd>TroubleToggle workspace_diagnostics<cr>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>tq", "<cmd>TroubleToggle quickfix<cr>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>td", "<cmd>TroubleToggle lsp_definitions<cr>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>tr", "<cmd>TroubleToggle lsp_references<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>tt", "<cmd>Trouble document_diagnostics<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>tw", "<cmd>Trouble workspace_diagnostics<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>tq", "<cmd>Trouble quickfix<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>td", "<cmd>Trouble lsp_definitions<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>tr", "<cmd>Trouble lsp_references<cr>", { noremap = true })
 
 -- telescope
 vim.api.nvim_set_keymap("n", "<leader>sf", "<cmd>lua require('telescope.builtin').find_files()<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>sg", "<cmd>lua require('telescope.builtin').live_grep()<cr>", { noremap = true })
-vim.api.nvim_set_keymap(
-	"n",
-	"<leader><leader>",
-	"<cmd>lua require('telescope.builtin').buffers()<cr>",
-	{ noremap = true }
-)
+vim.api.nvim_set_keymap("n", "<leader>sb", "<cmd>lua require('telescope.builtin').buffers()<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>sh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", { noremap = true })
 vim.api.nvim_set_keymap(
 	"n",
