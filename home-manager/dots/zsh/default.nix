@@ -13,8 +13,8 @@
         tm = "tmux";
         v = "nvim";
         lg = "lazygit";
-        ns = "sudo nixos-rebuild switch --flake ~/nix#default";
-        nt = "sudo nixos-rebuild test --flake ~/nix#default";
+        ns = "sudo nixos-rebuild switch --flake ~/nix#laptop";
+        nt = "sudo nixos-rebuild test --flake ~/nix#laptop";
       };
       # oh-my-zsh = {
       #   enable = true;
