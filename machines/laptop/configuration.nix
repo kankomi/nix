@@ -37,24 +37,14 @@
     ];
   };
 
-  # Hyprland
-  # programs.hyprland = {
-  #   enable = true;
-  #   package = inputs.hyprland.packages."${pkgs.system}".hyprland;
-  # };
-  # nixpkgs.overlays = [
-  #   (self: super: {
-  #     waybar = super.waybar.overrideAttrs (oldAttrs: {
-  #       mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
-  #     });
-  #   })
-  # ];
-
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.enable = true;
+  services.displayManager.gdm = {
+    enable = true;
+    wayland = true;
+  };
   services.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
@@ -75,8 +65,6 @@
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
   };
-
-  services.displayManager.gdm.wayland = true;
 
   # USB setup
   services.devmon.enable = true;
