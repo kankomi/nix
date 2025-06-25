@@ -1,18 +1,16 @@
 {
-  lib,
   inputs,
   nixpkgs,
   home-manager,
   user,
   ...
 }: let
-  system = "x86_64-linux";
-
-  pkgs = import nixpkgs {
-    inherit system;
-    config.allowUnfree = true;
-  };
-
+  # system = "x86_64-linux";
+  #
+  # pkgs = import nixpkgs {
+  #   inherit system;
+  #   config.allowUnfree = true;
+  # };
   lib = nixpkgs.lib;
 in {
   laptop = lib.nixosSystem {
@@ -33,6 +31,7 @@ in {
   vm = lib.nixosSystem {
     specialArgs = {inherit inputs user;};
     modules = [
+      ../homelab
       ./vm/configuration.nix
       home-manager.nixosModules.home-manager
       {

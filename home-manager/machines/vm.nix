@@ -3,8 +3,8 @@
   pkgs,
   lib,
   inputs,
-  pkgs-davinci,
   home,
+  user,
   ...
 }: {
   imports =
@@ -17,8 +17,8 @@
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "grop";
-  home.homeDirectory = "/home/grop";
+  home.username = user;
+  home.homeDirectory = "/home/${user}";
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -34,7 +34,6 @@
     tree
     neofetch
     xclip
-    stow
     killall
 
     unzip

@@ -2,20 +2,30 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 {
-  config,
-  lib,
   pkgs,
+  user,
   ...
 }: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    # ../../config/base.nix
-    # <home-manager/nixos>
-    # ./modules/smb.nix
-    # ./modules/nvidia.nix
+    ./nvidia.nix
+    ./homelab.nix
   ];
 
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
+  nix = {
+    # package = pkgs.nixFlakes;
+    # package = nixVersions.stable;
+    settings.experimental-features = ["nix-command" "flakes"];
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
+  };
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   # boot.loader.grub.efiSupport = true;
@@ -44,6 +54,23 @@
     #   useXkbConfig = true; # use xkb.options in tty.
   };
 
+  fonts = {
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+      meslo-lg
+      font-awesome
+      fira-code
+      nerd-fonts.droid-sans-mono
+      nerd-fonts.fira-code
+    ];
+
+    fontconfig = {
+      defaultFonts = {
+        monospace = ["Meslo"];
+      };
+    };
+  };
+
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
@@ -66,7 +93,7 @@
   # services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.grop = {
+  users.users.${user} = {
     isNormalUser = true;
     extraGroups = ["wheel" "docker"]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
@@ -76,10 +103,6 @@
   # set zsh as default
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
-
-  # home-manager.users.grop = (import ./home/home.nix);
-
-  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

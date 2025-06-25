@@ -8,7 +8,6 @@ require("lspconfig").buf_ls.setup({ capabilities = capabilities })
 require("lspconfig").gopls.setup({ capabilities = capabilities })
 require("lspconfig").templ.setup({ capabilities = capabilities })
 require("lspconfig").tailwindcss.setup({ capabilities = capabilities })
-require("lspconfig").ansiblels.setup({})
 require("lspconfig").pyright.setup({
 	capabilities = capabilities,
 	settings = {

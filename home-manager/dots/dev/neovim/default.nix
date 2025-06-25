@@ -29,6 +29,7 @@ in {
     gopls
     gofumpt
     tree-sitter
+    nil
   ];
   programs = {
     neovim = {
