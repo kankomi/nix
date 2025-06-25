@@ -114,7 +114,6 @@
     gh
     htop
     ripgrep
-    odin
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
