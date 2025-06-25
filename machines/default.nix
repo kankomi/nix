@@ -30,4 +30,19 @@ in {
       }
     ];
   };
+  vm = lib.nixosSystem {
+    specialArgs = {inherit inputs user;};
+    modules = [
+      ./vm/configuration.nix
+      home-manager.nixosModules.home-manager
+      {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.extraSpecialArgs = {
+          inherit user inputs;
+        };
+        home-manager.users.${user}.imports = [../home-manager/machines/vm.nix];
+      }
+    ];
+  };
 }
