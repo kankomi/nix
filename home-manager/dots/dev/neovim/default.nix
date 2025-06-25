@@ -13,15 +13,22 @@
         rev = rev;
       };
     };
+  nvim-plugintree = pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
+    p.nix
+    p.bash
+    p.python
+    p.yaml
+    p.markdown
+  ]);
 in {
   home.packages = with pkgs; [
     alejandra
-    # nixpkgs-fmt
     stylua
     nodePackages.vim-language-server
     lua-language-server
     gopls
     gofumpt
+    tree-sitter
   ];
   programs = {
     neovim = {
