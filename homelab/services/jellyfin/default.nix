@@ -17,7 +17,7 @@ in {
     };
     dataDir = lib.mkOption {
       type = lib.types.str;
-      default = "/mnt/nas_media/test";
+      default = "/${homelab.servicePath}/${service}";
     };
     logDir = lib.mkOption {
       type = lib.types.str;
@@ -28,6 +28,7 @@ in {
   config = lib.mkIf cfg.enable {
     services.jellyfin = {
       enable = true;
+      openFirewall = true;
       user = homelab.user;
       group = homelab.user;
       dataDir = cfg.dataDir;
