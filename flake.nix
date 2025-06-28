@@ -11,6 +11,10 @@
     nixpkgs-davinci.url = "github:NixOS/nixpkgs/d202f48f1249f013aa2660c6733e251c85712cbe";
 
     agenix.url = "github:ryantm/agenix";
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

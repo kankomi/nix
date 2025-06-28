@@ -1,16 +1,9 @@
-{
-  config,
-  pkgs,
-  lib,
-  inputs,
-  pkgs-davinci,
-  home,
-  ...
-}: {
+{pkgs, ...}: {
   imports =
     [(import ../dots/dev)]
     ++ [(import ../dots/zsh)]
     ++ [(import ../dots/btop)]
+    ++ [(import ../dots/nixvim)]
     ++ [(import ../dots/apps/usb)]
     ++ [(import ../dots/gnome)];
 
