@@ -2,11 +2,13 @@
   pkgs,
   user,
   ...
-}: {
+}:
+{
   imports =
-    [(import ../dots/dev)]
-    ++ [(import ../dots/zsh)]
-    ++ [(import ../dots/btop)];
+    [ (import ../dots/dev) ]
+    ++ [ (import ../dots/zsh) ]
+    ++ [ (import ../dots/nixvim) ]
+    ++ [ (import ../dots/btop) ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
