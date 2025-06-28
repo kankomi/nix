@@ -1,6 +1,5 @@
 {
   pkgs,
-  user,
   agenix,
   ...
 }: {
@@ -9,6 +8,7 @@
     ./hardware-configuration.nix
     ./nvidia.nix
     ./homelab.nix
+    ../../users/grop
   ];
 
   # Allow unfree packages
@@ -57,15 +57,6 @@
       };
     };
   };
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${user} = {
-    isNormalUser = true;
-    extraGroups = ["wheel" "docker"]; # Enable ‘sudo’ for the user.
-  };
-  # set zsh as default
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

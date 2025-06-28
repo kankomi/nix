@@ -3,7 +3,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../config/base.nix
-    ../../config/users/grop.nix
+    ../../users/grop
   ];
 
   boot.initrd.kernelModules = ["amdgpu"];
