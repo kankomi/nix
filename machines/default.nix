@@ -1,6 +1,7 @@
 {
   inputs,
   nixpkgs,
+  agenix,
   home-manager,
   user,
   ...
@@ -12,11 +13,15 @@
   #   config.allowUnfree = true;
   # };
   lib = nixpkgs.lib;
+  agenixModule = agenix.nixosModules.default;
 in {
+  inputs.agenix.url = "github:ryantm/agenix";
+
   laptop = lib.nixosSystem {
     specialArgs = {inherit inputs user;};
     modules = [
       ./laptop/configuration.nix
+      agenixModule
       home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;
@@ -29,10 +34,11 @@ in {
     ];
   };
   vm = lib.nixosSystem {
-    specialArgs = {inherit inputs user;};
+    specialArgs = {inherit inputs user agenix;};
     modules = [
       ../homelab
       ./vm/configuration.nix
+      agenixModule
       home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;

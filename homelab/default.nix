@@ -42,5 +42,6 @@ in {
   imports = [
     ./services
     ./samba
+    ../secrets
   ];
 }

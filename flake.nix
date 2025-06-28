@@ -9,6 +9,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs-davinci.url = "github:NixOS/nixpkgs/d202f48f1249f013aa2660c6733e251c85712cbe";
+
+    agenix.url = "github:ryantm/agenix";
   };
 
   outputs = {
@@ -16,6 +18,7 @@
     nixpkgs,
     home-manager,
     nixpkgs-davinci,
+    agenix,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -26,7 +29,7 @@
     nixosConfigurations = (
       import ./machines {
         inherit (nixpkgs) lib outputs;
-        inherit inputs nixpkgs home-manager pkgs-davinci system user;
+        inherit inputs nixpkgs home-manager pkgs-davinci agenix system user;
       }
     );
   };
