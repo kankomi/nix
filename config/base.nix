@@ -1,9 +1,4 @@
-{
-  inputs,
-  pkgs,
-  config,
-  ...
-}: {
+{pkgs, ...}: {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -71,7 +66,7 @@
   # services.xserver.libinput.enable = true;
 
   # firewall
-  networking.firewall.enable = false;
+  networking.firewall.enable = true;
 
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
