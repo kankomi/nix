@@ -333,24 +333,6 @@ in
       }
       {
         mode = "n";
-        key = "<A-CR>";
-        action = "O<Esc>";
-        options = {
-          silent = true;
-          remap = true;
-        };
-      }
-      {
-        mode = "n";
-        key = "<CR>";
-        action = "o<Esc>";
-        options = {
-          silent = true;
-          remap = true;
-        };
-      }
-      {
-        mode = "n";
         key = "<leader>sg";
         action = ":call CheckForExplorer()<CR> <cmd>lua require('telescope.builtin').live_grep()<cr>";
         options = {
