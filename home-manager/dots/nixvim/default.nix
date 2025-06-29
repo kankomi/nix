@@ -36,13 +36,7 @@ in
 
   programs.nixvim = {
     enable = true;
-    colorschemes.nord = {
-      enable = true;
-      settings = {
-        borders = true;
-        contrast = true;
-      };
-    };
+    colorschemes.catppuccin.enable = true;
     plugins = {
       notify.enable = true;
       web-devicons = {
@@ -108,7 +102,6 @@ in
     };
     extraPlugins = with pkgs.vimPlugins; [
       llm-nvim
-      ansible-vim
       coc-nvim
       coc-markdownlint
       vim-suda
