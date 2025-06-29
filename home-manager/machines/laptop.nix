@@ -1,11 +1,12 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports =
-    [(import ../dots/dev)]
-    ++ [(import ../dots/zsh)]
-    ++ [(import ../dots/btop)]
-    ++ [(import ../dots/nixvim)]
-    ++ [(import ../dots/apps/usb)]
-    ++ [(import ../dots/gnome)];
+    [ (import ../dots/dev) ]
+    ++ [ (import ../dots/zsh) ]
+    ++ [ (import ../dots/btop) ]
+    ++ [ (import ../dots/nixvim) ]
+    ++ [ (import ../dots/apps/usb) ]
+    ++ [ (import ../dots/gnome) ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -38,6 +39,7 @@
     brave
     obsidian
     discord
+    nextcloud-client
 
     vlc
 
