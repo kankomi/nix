@@ -1,1 +1,7 @@
 # Nix Setup
+
+# NixVim
+Official [NixVim](https://nix-community.github.io/nixvim/index.html) Website.
+
+# Davinci Resolve
+[Setup Page](https://wiki.nixos.org/wiki/DaVinci_Resolve).
