@@ -15,6 +15,8 @@ in
     nodejs
     ripgrep
     terraform-ls
+    gopls
+    gofumpt
   ];
 
   programs.neovim = {
@@ -92,6 +94,12 @@ in
       };
       colorizer = {
         enable = true;
+        settings = {
+          filetypes = [
+            "css"
+            "html"
+          ];
+        };
       };
       which-key = {
         enable = true;
@@ -103,6 +111,11 @@ in
     extraPlugins = with pkgs.vimPlugins; [
       llm-nvim
       coc-nvim
+      coc-go
+      coc-tsserver
+      coc-css
+      coc-emmet
+      coc-pyright
       coc-markdownlint
       vim-suda
       vim-tmux-navigator
@@ -185,6 +198,11 @@ in
         pattern = [ "*" ];
         command = "set nocul";
       }
+      {
+        event = [ "BufWritePre" ];
+        pattern = [ "*.go" ];
+        command = ":silent call CocAction('runCommand', 'editor.action.organizeImport')";
+      }
     ];
     highlight = {
       BufferCurrent = {
@@ -228,12 +246,13 @@ in
       };
       coc_global_extensions = [
         "coc-explorer"
-        "@yaegassy/coc-ansible"
         "@yaegassy/coc-nginx"
         "@yaegassy/coc-intelephense"
-        "@yaegassy/coc-phpstan"
         "coc-nil"
         "coc-pyright"
+        "coc-go"
+        "coc-tsserver"
+        "coc-css"
       ];
       suda_smart_edit = 1;
       "suda#nopass" = 1;
@@ -246,10 +265,21 @@ in
       set undofile
       set clipboard+=unnamedplus
       function CheckForExplorer()
-      if CocAction('runCommand', 'explorer.getNodeInfo', 'closest') isnot# v:null
-        CocCommand explorer --toggle
-          endif
-          endfunction
+        if CocAction('runCommand', 'explorer.getNodeInfo', 'closest') isnot# v:null
+          CocCommand explorer --toggle
+        endif
+      endfunction
+
+      " Use K to show documentation in preview window
+      nnoremap <silent> K :call ShowDocumentation()<CR>
+
+      function! ShowDocumentation()
+        if CocAction('hasProvider', 'hover')
+          call CocActionAsync('doHover')
+        else
+          call feedkeys('K', 'in')
+        endif
+      endfunction
     '';
     keymaps = [
       {
@@ -352,6 +382,100 @@ in
         mode = "n";
         key = ";;";
         action = ":call CheckForExplorer()<CR> <cmd>Telescope buffers<cr>";
+        options = {
+          silent = true;
+        };
+      }
+      # Code Action
+      {
+        mode = "n";
+        key = "<leader>re";
+        action = "<Plug>(coc-codeaction-refactor)";
+        options = {
+          silent = true;
+        };
+      }
+      {
+        mode = "x";
+        key = "<leader>r";
+        action = "<Plug>(coc-codeaction-refactor-selected)";
+        options = {
+          silent = true;
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>cl";
+        action = "<Plug>(coc-codelens-actions)";
+        options = {
+          silent = true;
+          nowait = true;
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>d";
+        action = ":CocList diagnostics<cr>";
+        options = {
+          silent = true;
+          nowait = true;
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>j";
+        action = ":CocNext<cr>";
+        options = {
+          silent = true;
+          nowait = true;
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>k";
+        action = ":CocPrev<cr>";
+        options = {
+          silent = true;
+          nowait = true;
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>fm";
+        action = ":CocCommand editor.action.formatDocument<cr>";
+        options = {
+          silent = true;
+          nowait = true;
+        };
+      }
+      {
+        mode = "n";
+        key = "gd";
+        action = "<Plug>(coc-definition)";
+        options = {
+          silent = true;
+        };
+      }
+      {
+        mode = "n";
+        key = "gy";
+        action = "<Plug>(coc-type-definition)";
+        options = {
+          silent = true;
+        };
+      }
+      {
+        mode = "n";
+        key = "gi";
+        action = "<Plug>(coc-implementation)";
+        options = {
+          silent = true;
+        };
+      }
+      {
+        mode = "n";
+        key = "gr";
+        action = "<Plug>(coc-references)";
         options = {
           silent = true;
         };

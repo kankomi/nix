@@ -1,12 +1,23 @@
 {
   homeDir,
   pkgs,
-}: {
-  languageserver.terraform = {
-    command = "terraform-ls";
-    args = ["serve"];
-    filetypes = ["tf"];
-    initializationOptions = {};
+}:
+{
+  languageserver = {
+    terraform = {
+      command = "terraform-ls";
+      args = [ "serve" ];
+      filetypes = [ "tf" ];
+      initializationOptions = { };
+    };
+    # golang = {
+    #   command = "gopls";
+    #   rootPatterns = [ "go.mod" ];
+    #   filetypes = [
+    #     "go"
+    #     "templ"
+    #   ];
+    # };
   };
   eslint.autoFixOnSave = true;
   inlayHint.enable = false;
@@ -23,10 +34,12 @@
     "php"
     "markdown"
     "tf"
+    "go"
+    "templ"
   ];
   nil.server.path = "${pkgs.nil}/bin/nil";
-  nil.formatting.command = ["${pkgs.nixfmt-rfc-style}/bin/nixfmt"];
-  nil.diagnostics.excludedFiles = ["generated.nix"];
+  nil.formatting.command = [ "${pkgs.nixfmt-rfc-style}/bin/nixfmt" ];
+  nil.diagnostics.excludedFiles = [ "generated.nix" ];
   nil.nix.flake.autoEvalInputs = false;
   nil.nix.maxMemoryMB = 2048;
   nil.nix.binary = "${pkgs.writeShellScript "nil-nix-wrapper" ''
