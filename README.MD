@@ -8,3 +8,9 @@ Official [NixVim](https://nix-community.github.io/nixvim/index.html) Website.
 
 # Secret handling
 Secret handling is done via age. More information [here](https://github.com/ryantm/agenix).
+
+# Using home manager with WSL
+Run command after updating home manager configuration:
+```
+home-manager --flake .#wsl switch
+```

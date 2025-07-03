@@ -15,29 +15,47 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    ...
-  } @ inputs: let
-    inherit (self) outputs;
-    system = "x86_64-linux";
-    user = "grop";
-    pkgs-davinci = inputs.nixpkgs-davinci.legacyPackages.${system};
-  in {
-    nixosConfigurations = (
-      import ./machines {
-        inherit (nixpkgs) lib outputs;
-        inherit
-          inputs
-          nixpkgs
-          home-manager
-          pkgs-davinci
-          system
-          user
-          ;
-      }
-    );
-  };
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }@inputs:
+    let
+      inherit (self) outputs;
+      system = "x86_64-linux";
+      user = "grop";
+      pkgs-davinci = inputs.nixpkgs-davinci.legacyPackages.${system};
+      pkgs = import nixpkgs {
+        inherit system;
+        config = {
+          allowUnfree = true;
+        };
+      };
+    in
+    {
+      nixosConfigurations = (
+        import ./machines {
+          inherit (nixpkgs) lib outputs;
+          inherit
+            inputs
+            nixpkgs
+            home-manager
+            pkgs-davinci
+            system
+            user
+            ;
+        }
+      );
+      homeConfigurations = {
+        wsl = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = {
+            inherit inputs;
+          };
+          modules = [ ./home-manager/machines/wsl.nix ];
+        };
+      };
+    };
 }
