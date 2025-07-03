@@ -1,13 +1,11 @@
 {
-  config,
   pkgs,
-  user,
   ...
-}: {
+}:
+{
   programs.tmux = {
     enable = true;
     plugins = with pkgs; [
-      # tmuxPlugins.power-theme
       tmuxPlugins.catppuccin
       tmuxPlugins.vim-tmux-navigator
     ];
