@@ -18,32 +18,12 @@
 
   networking.hostName = "nixos"; # Define your hostname.
 
-  # Set your time zone.
-  time.timeZone = "Europe/Berlin";
-
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     font = "Lat2-Terminus16";
     keyMap = "de";
     #   useXkbConfig = true; # use xkb.options in tty.
-  };
-
-  fonts = {
-    enableDefaultPackages = true;
-    packages = with pkgs; [
-      meslo-lg
-      font-awesome
-      fira-code
-      nerd-fonts.droid-sans-mono
-      nerd-fonts.fira-code
-    ];
-
-    fontconfig = {
-      defaultFonts = {
-        monospace = [ "Meslo" ];
-      };
-    };
   };
 
   # List packages installed in system profile. To search, run:
