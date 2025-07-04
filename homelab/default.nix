@@ -2,9 +2,11 @@
   config,
   lib,
   ...
-}: let
+}:
+let
   cfg = config.homelab;
-in {
+in
+{
   options.homelab = {
     enable = lib.mkEnableOption {
       default = true;
@@ -42,6 +44,5 @@ in {
   imports = [
     ./services
     ./samba
-    ../secrets
   ];
 }
