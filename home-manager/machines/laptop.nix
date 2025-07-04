@@ -1,12 +1,13 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
-  imports =
-    [ (import ../dots/dev) ]
-    ++ [ (import ../dots/zsh) ]
-    ++ [ (import ../dots/btop) ]
-    ++ [ (import ../dots/nixvim) ]
-    ++ [ (import ../dots/apps/usb) ]
-    ++ [ (import ../dots/gnome) ];
+  imports = [
+    ../dots/dev
+    ../dots/zsh
+    ../dots/btop
+    ../dots/nixvim
+    ../dots/apps/usb
+    ../dots/gnome
+  ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -22,19 +23,10 @@
     home-manager
 
     # Terminal
-    htop
     ripgrep
     fzf
-    curl
-    wget
-    tree
-    neofetch
     xclip
-    stow
-    killall
-
-    unzip
-    rsync
+    powertop
 
     brave
     obsidian
@@ -44,9 +36,6 @@
     vlc
 
     # pkgs.davinci-resolve-studio
-
-    unzip
-    rsync
 
     # Usb autoload
     udisks2
@@ -71,6 +60,10 @@
     #go
     templ
     air
+
+    #wine
+    wineWowPackages.stable
+    winetricks
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

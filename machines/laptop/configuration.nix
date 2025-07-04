@@ -1,12 +1,14 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../config/base.nix
     ../../users/grop
+    ../_common
   ];
 
-  boot.initrd.kernelModules = ["amdgpu"];
+  boot.initrd.kernelModules = [ "amdgpu" ];
 
   environment.systemPackages = with pkgs; [
     mesa-demos
@@ -14,7 +16,7 @@
     clinfo
   ];
   services.dbus.enable = true;
-  services.xserver.videoDrivers = ["amdgpu"];
+  services.xserver.videoDrivers = [ "amdgpu" ];
   environment.variables = {
     RUSTICL_ENABLE = "radeonsi";
     ROC_ENABLE_PRE_VEGA = "1";
@@ -65,7 +67,7 @@
   services.devmon.enable = true;
   services.udisks2.enable = true;
   services.gvfs.enable = true;
-  boot.kernelModules = ["fuse"];
+  boot.kernelModules = [ "fuse" ];
 
   networking.hostName = "laptop"; # Define your hostname.
   hardware.bluetooth.enable = true;

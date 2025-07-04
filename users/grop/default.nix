@@ -1,5 +1,9 @@
-{pkgs, ...}: {
-  nix.settings.trusted-users = ["grop"];
+{
+  pkgs,
+  ...
+}:
+{
+  nix.settings.trusted-users = [ "grop" ];
 
   users = {
     users = {
