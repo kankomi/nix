@@ -6,7 +6,7 @@
   ];
 
   age.secrets = {
-    samba-creds = {
+    samba = {
       file = ./samba.age;
       owner = "root";
       group = "root";
