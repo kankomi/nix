@@ -9,6 +9,9 @@
   ];
 
   boot.initrd.kernelModules = [ "amdgpu" ];
+  boot.extraModprobeConfig = ''
+    options iwlwifi 11n_disable=8
+  '';
 
   environment.systemPackages = with pkgs; [
     mesa-demos
