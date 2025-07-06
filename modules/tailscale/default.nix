@@ -8,6 +8,7 @@
   networking.firewall.allowedUDPPorts = [ config.services.tailscale.port ];
   networking.firewall.trustedInterfaces = [ "tailscale0" ];
 
+  # global nameservers need to be disabled on tailscale.com
   services.tailscale = {
     enable = true;
     # useRoutingFeatures = "both";
