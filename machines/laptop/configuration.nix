@@ -78,6 +78,8 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
+  services.tailscale.enable = true;
+
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = false;
 

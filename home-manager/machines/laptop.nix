@@ -64,6 +64,10 @@
     #wine
     wineWowPackages.stable
     winetricks
+
+    # tailscale
+    tailscale
+    gnomeExtensions.tailscale-qs
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
