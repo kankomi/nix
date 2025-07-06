@@ -12,4 +12,5 @@ in
     laptop
     vm
   ];
+  "cloudflared.age".publicKeys = [ vm ];
 }

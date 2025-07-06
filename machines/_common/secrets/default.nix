@@ -16,5 +16,6 @@
 
     userHashedPassword.file = ./userHashedPassword.age;
     tailscaleAuthKey.file = ./tailscaleAuthKey.age;
+    cloudflared.file = ./cloudflared.age;
   };
 }
