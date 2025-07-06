@@ -44,5 +44,6 @@ in
   imports = [
     ./services
     ./samba
+    ./cloudflared
   ];
 }

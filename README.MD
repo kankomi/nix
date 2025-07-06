@@ -15,5 +15,5 @@ Run command after updating home manager configuration:
 home-manager --flake .#wsl switch
 ```
 
-# Confoguring Cloudflare tunnels
+# Configuring Cloudflare tunnels
 [Link](https://olai.dev/blog/nix-cloudflare-tunnels/)
