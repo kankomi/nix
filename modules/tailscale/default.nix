@@ -3,6 +3,11 @@
   # needed for dns to work
   services.resolved.enable = true;
 
+  boot.kernel.sysctl = {
+    # if you use ipv4, this is all you need
+    "net.ipv4.conf.all.forwarding" = true;
+  };
+
   environment.systemPackages = [ pkgs.tailscale ];
 
   networking.firewall.allowedUDPPorts = [ config.services.tailscale.port ];
@@ -17,6 +22,7 @@
       # "--reset"
       # "--advertise-exit-node"
       # "--accept-dns=false"
+      "--advertise-routes=192.168.1.0/24"
     ];
   };
 }
