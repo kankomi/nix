@@ -14,7 +14,7 @@
         extraGroups = [
           "wheel"
           "users"
-          "netorkmanager"
+          "networkmanager"
           "storage"
         ];
         group = "grop";
