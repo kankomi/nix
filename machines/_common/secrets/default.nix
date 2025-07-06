@@ -1,6 +1,7 @@
 { ... }:
 {
   age.identityPaths = [
+    "/home/grop/.ssh/id_ed25519"
     "/home/grop/.ssh/id_rsa"
     "/etc/ssh/ssh_host_ed25519_key"
   ];
@@ -14,5 +15,6 @@
     };
 
     userHashedPassword.file = ./userHashedPassword.age;
+    tailscaleAuthKey.file = ./tailscaleAuthKey.age;
   };
 }

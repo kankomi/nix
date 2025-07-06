@@ -9,6 +9,7 @@
     ./homelab.nix
     ../../users/grop
     ../_common
+    ../../modules/tailscale
   ];
 
   # Use the GRUB 2 boot loader.
