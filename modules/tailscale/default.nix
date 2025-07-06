@@ -1,6 +1,8 @@
 { pkgs, config, ... }:
 {
-  # curl -fsSL https://tailscale.com/install.sh | sh && sudo tailscale up --auth-key=tskey-auth-kSUpXpVjpg11CNTRL-uhgDp9yjzTTDEJfFRM9JSTH4UnHEHe1m
+  # needed for dns to work
+  services.resolved.enable = true;
+
   environment.systemPackages = [ pkgs.tailscale ];
 
   networking.firewall.allowedUDPPorts = [ config.services.tailscale.port ];
@@ -8,8 +10,12 @@
 
   services.tailscale = {
     enable = true;
+    # useRoutingFeatures = "both";
     authKeyFile = config.age.secrets.tailscaleAuthKey.path;
-    # extraUpFlags = [
-    #   ];
+    extraUpFlags = [
+      # "--reset"
+      # "--advertise-exit-node"
+      # "--accept-dns=false"
+    ];
   };
 }
