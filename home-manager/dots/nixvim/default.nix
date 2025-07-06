@@ -480,6 +480,16 @@ in
           silent = true;
         };
       }
+      {
+        mode = "n";
+        key = "<leader>rn";
+        action = "<Plug>(coc-rename)";
+      }
+      {
+        mode = "n";
+        key = "<leader>qf";
+        action = "<Plug>(coc-fix-current)";
+      }
     ];
   };
 }
