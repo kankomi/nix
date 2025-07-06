@@ -44,6 +44,9 @@ in
       push = {
         autoSetupRemote = true;
       };
+      rebase = {
+        autoStash = true;
+      };
       core = {
         whitespace = "trailing-space,space-before-tab";
       };
