@@ -68,6 +68,7 @@
 
         blur = {
           enabled = true;
+          ignore_opacity = true;
           size = 8;
           passes = 4;
           popups = true;
@@ -111,7 +112,7 @@
       layerrule = [
         "blur,waybar"
         "ignorealpha 0.2,waybar"
-        "blur,wofi"
+        # "blur noborder,wofi"
         "ignorealpha 0.2,wofi"
       ];
 
@@ -122,8 +123,9 @@
         # "move 990 60,size 900 170,pin,noinitialfocus,class:(showmethekey-gtk)"
         # "noborder,nofocus,class:(showmethekey-gtk)"
         "float,class:^(.blueman-manager-wrapped)$"
-        "float,class:nextcloud"
-        # "noborder,nofocus,class:(wofi)"
+        "float,title:Nextcloud"
+        "noborder,nofocus,class:(wofi)"
+        # "blur, opacity 0.7 override, class:(alacritty)"
 
         # "workspace 3,class:(obsidian)"
         # "workspace 3,class:(zathura)"

@@ -15,7 +15,10 @@
         height = 34;
         # margin = "10px 10px";
         modules-left = [ "hyprland/workspaces" ];
-        modules-center = [ "clock" ];
+        modules-center = [
+          "clock"
+          "hyprland/window"
+        ];
         modules-right = [
           "tray"
           # "bluetooth"
