@@ -17,7 +17,7 @@
         modules-left = [ "hyprland/workspaces" ];
         modules-center = [
           "clock"
-          "hyprland/window"
+          # "hyprland/window"
         ];
         modules-right = [
           "tray"
@@ -67,7 +67,7 @@
               ""
             ];
           };
-          on-click = "hyprctl dispatch exec [floating] pavucontrol";
+          on-click = "pavucontrol";
         };
 
         "battery" = {

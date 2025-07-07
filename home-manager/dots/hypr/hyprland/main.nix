@@ -123,7 +123,7 @@
         # "move 990 60,size 900 170,pin,noinitialfocus,class:(showmethekey-gtk)"
         # "noborder,nofocus,class:(showmethekey-gtk)"
         "float,class:^(.blueman-manager-wrapped)$"
-        "float,title:Nextcloud"
+        # "float,title:Nextcloud"
         "noborder,nofocus,class:(wofi)"
         # "blur, opacity 0.7 override, class:(alacritty)"
 
