@@ -1,0 +1,56 @@
+window#waybar {
+  /* background: rgba(17, 17, 27, 0.7); */
+  background: rgba(30, 30, 46, 0.6);
+  color: #ebdbb2;
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrains Mono";
+  font-weight: bold;
+  font-size: 16px;
+  min-height: 0;
+}
+
+/* Workspace Buttons */
+/* #workspaces button label { */
+/*   color: #ebdbb2; */
+/*   padding: 0 10px; */
+/* } */
+/**/
+/* #workspaces button.active label { */
+/*   color: #1d2021; */
+/* } */
+/**/
+/* #workspaces button.active { */
+/*   background: #d65d0e; */
+/* } */
+
+#battery.charging {
+  color: #26A65B;
+}
+
+#battery.critical {
+  color: #f53c3c;
+}
+
+@keyframes blink {
+  to {
+    color: #ebdbb2;
+  }
+}
+
+#battery.warning:not(.charging) {
+  color: #f53c3c;
+  animation: blink 0.5s steps(12) infinite alternate;
+}
+
+#clock,
+#battery,
+#pulseaudio,
+#tray,
+#network,
+#bluetooth,
+#custom-weather {
+  margin: 0 5px;
+  padding: 0 5px;
+
+}
