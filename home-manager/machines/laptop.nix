@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ../dots/dev
@@ -7,6 +7,7 @@
     ../dots/nixvim
     ../dots/apps/usb
     ../dots/gnome
+    ../dots/hypr
   ];
 
   # Let Home Manager install and manage itself.
@@ -27,11 +28,13 @@
     fzf
     xclip
     powertop
+    jq
 
     brave
     obsidian
     discord
     nextcloud-client
+    spotify
 
     vlc
 
