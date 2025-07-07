@@ -8,6 +8,8 @@
     xdg-desktop-portal-hyprland
     hyprpicker
     grimblast
+    networkmanagerapplet
+    wl-clipboard
   ];
 
   wayland.windowManager.hyprland = {
@@ -36,6 +38,7 @@
         "wl-paste --type image --watch cliphist store"
         "blueman-applet"
         "nextcloud"
+        "nm-applet &"
       ];
 
       general = {

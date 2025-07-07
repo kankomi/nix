@@ -22,7 +22,7 @@
           "custom/weather"
           "pulseaudio"
           "battery"
-          "network"
+          # "network"
         ];
         "hyprland/workspaces" = {
           disable-scroll = true;
@@ -90,7 +90,7 @@
         };
 
         "tray" = {
-          icon-size = 14;
+          icon-size = 16;
           spacing = 5;
         };
 
