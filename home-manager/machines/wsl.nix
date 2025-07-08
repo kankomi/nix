@@ -50,7 +50,7 @@
 
     # tools
     azure-cli
-    # terraform
+    azure-functions-core-tools
     ffmpeg
 
     # libraries
