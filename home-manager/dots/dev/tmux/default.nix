@@ -18,7 +18,7 @@
 
         set -g base-index 1
         set -g pane-base-index 1
-        set -g status-style bg=defaul
+        set -g status-style bg=default
 
         set -g default-terminal "tmux-256color"
         set -ag terminal-overrides ",xterm-256color:RGB"
