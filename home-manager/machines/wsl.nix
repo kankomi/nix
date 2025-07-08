@@ -41,6 +41,8 @@
     # rustup
     cargo
     go
+    templ
+    air
     zig
     devenv
 
