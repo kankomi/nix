@@ -48,6 +48,9 @@ in
       project-nvim = {
         enable = true;
       };
+      leap = {
+        enable = true;
+      };
       telescope = {
         enable = true;
       };
@@ -251,7 +254,6 @@ in
       coc_global_extensions = [
         "coc-explorer"
         "@yaegassy/coc-nginx"
-        "@yaegassy/coc-intelephense"
         "coc-nil"
         "coc-pyright"
         "coc-go"
