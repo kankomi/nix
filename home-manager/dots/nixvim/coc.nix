@@ -105,7 +105,7 @@
     "workspace"
     "cwd"
   ];
-  explorer.quitOnOpen = true;
+  explorer.quitOnOpen = false;
   explorer.buffer.root.template = "[icon & 1] OPEN EDITORS";
   explorer.file.reveal.auto = false;
   explorer.file.root.template = "[icon & 1] PROJECT ([root])";

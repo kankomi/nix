@@ -116,6 +116,7 @@ in
       coc-css
       coc-emmet
       coc-pyright
+      coc-snippets
       coc-markdownlint
       vim-suda
       vim-tmux-navigator
@@ -482,6 +483,14 @@ in
       }
       {
         mode = "n";
+        key = "go";
+        action = ":CocList outline<cr>";
+        options = {
+          silent = true;
+        };
+      }
+      {
+        mode = "n";
         key = "<leader>rn";
         action = "<Plug>(coc-rename)";
       }
@@ -489,6 +498,23 @@ in
         mode = "n";
         key = "<leader>qf";
         action = "<Plug>(coc-fix-current)";
+      }
+      {
+        mode = "i";
+        key = "<c-space>";
+        action = "coc#refresh()";
+        options = {
+          silent = true;
+          expr = true;
+        };
+      }
+      {
+        mode = "i";
+        key = "<c-j>";
+        action = "<Plug>(coc-snippets-expand-jump)";
+        options = {
+          silent = true;
+        };
       }
     ];
   };
