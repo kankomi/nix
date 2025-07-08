@@ -29,6 +29,8 @@
     "javascriptreact"
     "typescript"
     "typescriptreact"
+    "json"
+    "yaml"
     "nix"
     "python"
     "php"

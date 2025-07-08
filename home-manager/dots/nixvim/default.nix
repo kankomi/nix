@@ -97,7 +97,9 @@ in
         settings = {
           filetypes = [
             "css"
+            "scss"
             "html"
+            "templ"
           ];
         };
       };
@@ -114,6 +116,7 @@ in
       coc-go
       coc-tsserver
       coc-css
+      coc-json
       coc-emmet
       coc-pyright
       coc-snippets
