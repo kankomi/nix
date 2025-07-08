@@ -14,6 +14,16 @@
       set -g prefix C-a
       set -g mouse on
 
+      set -g base-index 1
+      set -g pane-base-index 1
+
+      set -g default-terminal "tmux-256color"
+      set -ag terminal-overrides ",xterm-256color:RGB"
+
+      set -g @catppuccin_window_status_style "rounded"
+      set -g status-left ""
+      set -g status-right "#{E:@catppuccin_status_application} #{E:@catppuccin_status_session}"
+
       set-option -s set-clipboard off
       bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "xclip -in -selection clipboard"
       bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "xclip -in -selection clipboard"
