@@ -78,9 +78,6 @@
   diagnostic.errorSign = "";
   diagnostic.infoSign = "";
   python.jediEnabled = false;
-  ansible.dev.serverPath = "${homeDir}/.nix-profile/bin/ansible-language-server";
-  ansible.builtin.isWithYamllint = true;
-  ansible.disableProgressNotification = false;
   explorer.icon.enableNerdfont = true;
   explorer.width = 30;
   explorer.file.showHiddenFiles = true;
@@ -122,5 +119,4 @@
     ma = "addFile";
     mA = "addDirectory";
   };
-  phpstan.level = "max";
 }
