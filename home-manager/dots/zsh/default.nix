@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   ...
 }:
 {
@@ -13,16 +14,26 @@
       enableCompletion = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
-      shellAliases = {
-        tm = "tmux";
-        lg = "lazygit";
-        ns = "sudo nixos-rebuild switch --flake ~/nix#laptop";
-        nt = "sudo nixos-rebuild test --flake ~/nix#laptop";
-        v = "nvim";
-        ls = "ls -h --color";
-        l = "ls -lh";
-        ll = "l";
-      };
+      shellAliases =
+        {
+          tm = "tmux";
+          lg = "lazygit";
+          ns = "sudo nixos-rebuild switch --flake ~/nix#laptop";
+          nt = "sudo nixos-rebuild test --flake ~/nix#laptop";
+          v = "nvim";
+          ls = "ls -h --color";
+          l = "ls -lh";
+          ll = "l";
+          la = "ls -la";
+        }
+        // (
+          if config.home.username == "gpa9bh" then
+            {
+              hms = "home-manager switch --flake /home/gpa9bh/nix#wsl";
+            }
+          else
+            { }
+        );
       initContent =
         if config.home.username == "gpa9bh" then
           ''
