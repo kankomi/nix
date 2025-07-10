@@ -1,7 +1,8 @@
 window#waybar {
   /* background: rgba(17, 17, 27, 0.7); */
   background: rgba(30, 30, 46, 0.6);
-  color: #ebdbb2;
+  /* color: #ebdbb2; */
+  color: #89B4FA;
   border: none;
   border-radius: 0;
   font-family: "JetBrains Mono";
@@ -11,10 +12,11 @@ window#waybar {
 }
 
 /* Workspace Buttons */
-/* #workspaces button label { */
-/*   color: #ebdbb2; */
-/*   padding: 0 10px; */
-/* } */
+#workspaces button label {
+  color: #A6E3A1;
+  /* padding: 0 10px; */
+}
+
 /**/
 /* #workspaces button.active label { */
 /*   color: #1d2021; */
@@ -34,7 +36,7 @@ window#waybar {
 
 @keyframes blink {
   to {
-    color: #ebdbb2;
+    color: #89B4FA;
   }
 }
 

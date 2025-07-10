@@ -1,11 +1,15 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   nix = {
     # package = pkgs.nixFlakes;
     # package = nixVersions.stable;
-    settings.experimental-features = ["nix-command" "flakes"];
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     gc = {
       automatic = true;
       dates = "weekly";
@@ -47,11 +51,12 @@
       fira-code
       nerd-fonts.droid-sans-mono
       nerd-fonts.fira-code
+      nerd-fonts.caskaydia-cove
     ];
 
     fontconfig = {
       defaultFonts = {
-        monospace = ["Meslo"];
+        monospace = [ "Meslo" ];
       };
     };
   };
