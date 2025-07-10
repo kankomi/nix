@@ -1,7 +1,6 @@
 {
   inputs,
   pkgs,
-  config,
   lib,
   ...
 }:
@@ -39,11 +38,12 @@
       fira-code
       nerd-fonts.droid-sans-mono
       nerd-fonts.fira-code
+      nerd-fonts.caskaydia-cove
     ];
 
     fontconfig = {
       defaultFonts = {
-        monospace = [ "Meslo" ];
+        monospace = [ "CaskaydiaCove Nerd Font" ];
       };
     };
   };
