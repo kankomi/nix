@@ -30,6 +30,12 @@
           if config.home.username == "gpa9bh" then
             {
               hms = "home-manager switch --flake /home/gpa9bh/nix#wsl";
+              network-status = "sudo journalctl -u wsl-network.service -f | grep -v \"sudo\"";
+              px-status = "sudo journalctl -u px-proxy.service -f | grep -v \"sudo\"";
+              vpnkit-status = "sudo journalctl -u wsl-vpnkit.service -f | grep -v \"sudo\"";
+              network-restart = "sudo systemctl restart wsl-network.service";
+              px-restart = "sudo systemctl restart px-proxy.service";
+              vpnkit-restart = "sudo systemctl restart wsl-vpnkit.service";
             }
           else
             { }
@@ -45,10 +51,5 @@
         else
           "";
     };
-    # oh-my-posh = {
-    #   enable = true;
-    #   enableZshIntegration = true;
-    #   useTheme = "catppuccin_mocha";
-    # };
   };
 }
