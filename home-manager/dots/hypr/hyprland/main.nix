@@ -76,12 +76,16 @@
       };
 
       animations = {
-        enabled = false;
+        enabled = true;
+        animation = [
+          "windows, 1, 2, default, popin 80%"
+          "workspaces, 1, 2, default"
+        ];
       };
 
       input = {
         kb_layout = "de";
-        kb_options = "grp:caps_toggle";
+        kb_options = "caps:swapescape";
         touchpad = {
           natural_scroll = true;
         };
@@ -112,7 +116,6 @@
       layerrule = [
         "blur,waybar"
         "ignorealpha 0.2,waybar"
-        # "blur noborder,wofi"
         "ignorealpha 0.2,wofi"
       ];
 
@@ -128,21 +131,9 @@
         # "blur, opacity 0.7 override, class:(alacritty)"
 
         # "workspace 3,class:(obsidian)"
-        # "workspace 3,class:(zathura)"
-        # "workspace 4,class:(com.obsproject.Studio)"
-        # "workspace 5,class:(telegram)"
-        # "workspace 5,class:(vesktop)"
-        # "workspace 6,class:(teams-for-linux)"
 
         "suppressevent maximize, class:.*"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
-
-        # "opacity 0.0 override, class:^(xwaylandvideobridge)$"
-        # "noanim, class:^(xwaylandvideobridge)$"
-        # "noinitialfocus, class:^(xwaylandvideobridge)$"
-        # "maxsize 1 1, class:^(xwaylandvideobridge)$"
-        # "noblur, class:^(xwaylandvideobridge)$"
-        # "nofocus, class:^(xwaylandvideobridge)$"
       ];
 
       workspace = [
