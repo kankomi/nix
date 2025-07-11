@@ -14,15 +14,15 @@
         size = lib.mkForce 14;
         builtin_box_drawing = true;
         normal = {
-          family = lib.mkForce "CaskaydiaCove Nerd Font";
-          style = lib.mkForce "Bold";
+          family = lib.mkForce "CaskaydiaCove Nerd Font Mono";
+          # style = lib.mkForce "Bold";
         };
         bold_italic = {
-          family = lib.mkForce "CaskaydiaCove Nerd Font";
+          family = lib.mkForce "CaskaydiaCove Nerd Font Mono";
           style = lib.mkForce "Bold Italic";
         };
         italic = {
-          family = lib.mkForce "CaskaydiaCove Nerd Font";
+          family = lib.mkForce "CaskaydiaCove Nerd Font Mono";
           style = lib.mkForce "Italic";
         };
       };
