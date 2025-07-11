@@ -1,8 +1,12 @@
 { pkgs, ... }:
+let
+  tailscaleScript = pkgs.writeScriptBin "tailscale_updown" (builtins.readFile ./tailscale.sh);
+in
 {
   home.packages = with pkgs; [
     pavucontrol
     blueman
+    tailscaleScript
   ];
 
   programs.waybar = {
@@ -21,6 +25,7 @@
         ];
         modules-right = [
           "tray"
+          "custom/tailscale"
           # "bluetooth"
           "custom/weather"
           "pulseaudio"
@@ -94,7 +99,7 @@
 
         "tray" = {
           icon-size = 16;
-          spacing = 5;
+          spacing = 10;
         };
 
         "network" = {
@@ -119,6 +124,16 @@
           tooltip-format-enumerate-connected = "{device_alias}\t{device_address}";
           tooltip-format-enumerate-connected-battery = "{device_alias}\t{device_address}\t{device_battery_percentage}%";
           on-click = "hyprctl dispatch exec [floating] blueman-manager";
+        };
+
+        "custom/tailscale" = {
+          format = "";
+          exec = "${tailscaleScript}/bin/tailscale_updown --status";
+          on-click = "${tailscaleScript}/bin/tailscale_updown --toggle";
+          exec-on-event = true;
+          interval = 2;
+          return-type = "json";
+          tooltip = true;
         };
       };
     };

@@ -14,17 +14,7 @@ window#waybar {
 /* Workspace Buttons */
 #workspaces button label {
   color: #A6E3A1;
-  /* padding: 0 10px; */
 }
-
-/**/
-/* #workspaces button.active label { */
-/*   color: #1d2021; */
-/* } */
-/**/
-/* #workspaces button.active { */
-/*   background: #d65d0e; */
-/* } */
 
 #battery.charging {
   color: #26A65B;
@@ -52,7 +42,16 @@ window#waybar {
 #network,
 #bluetooth,
 #custom-weather {
-  margin: 0 5px;
-  padding: 0 5px;
+  margin: 0 5px 0 0;
+  padding: 0 5px 0 0;
+}
 
+#custom-tailscale {
+  color: #A6E3A1;
+  margin: 0 5px 0 0;
+  padding: 0 5px 0 0;
+}
+
+#custom-tailscale.stopped {
+  color: #737984;
 }
