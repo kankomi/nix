@@ -8,6 +8,7 @@
     ../dots/apps/usb
     ../dots/gnome
     ../dots/hypr
+    ../dots/ghostty
   ];
 
   # Let Home Manager install and manage itself.
@@ -35,10 +36,11 @@
     discord
     nextcloud-client
     spotify
+    loupe # image viewer
 
     vlc
 
-    # pkgs.davinci-resolve-studio
+    pkgs.davinci-resolve-studio
 
     # Usb autoload
     udisks2
@@ -50,6 +52,7 @@
     gphoto2fs
     libgphoto2
     darktable
+    libreoffice
 
     # Dev
     lazygit
@@ -89,6 +92,7 @@
 
   home.sessionVariables = {
     EDITOR = "nvim";
+    QT_QPA_PLATFORM = "xcb";
   };
   home.sessionPath = [
   ];
