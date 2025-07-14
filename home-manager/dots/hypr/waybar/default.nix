@@ -19,7 +19,7 @@ in
         position = "top";
         background = "none";
         height = 34;
-        margin = "5px 10px";
+        margin = "5px 5px";
         modules-left = [ "hyprland/workspaces" ];
         modules-center = [
           "clock"
