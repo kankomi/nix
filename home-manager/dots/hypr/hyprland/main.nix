@@ -42,8 +42,8 @@
       ];
 
       general = {
-        gaps_in = 0;
-        gaps_out = 0;
+        gaps_in = 5;
+        gaps_out = 5;
 
         border_size = 2;
 
@@ -57,7 +57,7 @@
       };
 
       decoration = {
-        rounding = 0;
+        rounding = 15;
 
         active_opacity = 1.0;
         inactive_opacity = 1.0;
@@ -114,9 +114,9 @@
       };
 
       layerrule = [
-        "blur,waybar"
         "ignorealpha 0.2,waybar"
         "ignorealpha 0.2,wofi"
+        "blur, waybar"
       ];
 
       windowrulev2 = [
@@ -128,7 +128,6 @@
         "float,class:^(.blueman-manager-wrapped)$"
         # "float,title:Nextcloud"
         "noborder,nofocus,class:(wofi)"
-        # "blur, opacity 0.7 override, class:(alacritty)"
 
         # "workspace 3,class:(obsidian)"
 
@@ -136,10 +135,10 @@
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
       ];
 
-      workspace = [
-        "w[tv1], gapsout:0, gapsin:0"
-        "f[1], gapsout:0, gapsin:0"
-      ];
+      # workspace = [
+      #   "w[tv1], gapsout:0, gapsin:0"
+      #   "f[1], gapsout:0, gapsin:0"
+      # ];
     };
   };
 }

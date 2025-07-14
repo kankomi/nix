@@ -30,7 +30,7 @@ case $1 in
       exitnode=$(tailscale status --json | jq -r '.Peer[] | select(.ExitNode == true).DNSName | split(".")[0]')
       echo "{\"text\":\"${exitnode}\",\"class\":\"connected\",\"alt\":\"connected\", \"tooltip\": \"${peers}\"}"
     else
-      echo "{\"text\":\"\",\"class\":\"stopped\",\"alt\":\"stopped\", \"tooltip\": \"The VPN is not active.\"}"
+      echo "{\"text\":\"\",\"class\":\"disconnected\",\"alt\":\"disconnected\", \"tooltip\": \"The VPN is not active.\"}"
     fi
     ;;
   --toggle)

@@ -16,7 +16,7 @@ let
   '';
 in
 {
-  home.packages = [ booksScript ];
+  # home.packages = [ tailscaileScript ];
 
   wayland.windowManager.hyprland.settings = {
     bind = [
@@ -32,7 +32,7 @@ in
       "$mainMod,       V, exec, cliphist list | $menu --dmenu | cliphist decode | wl-copy"
       "$mainMod,       B, exec, brave"
       # "$mainMod,       B, exec, pkill -SIGUSR2 waybar"
-      # "$mainMod SHIFT, B, exec, pkill -SIGUSR1 waybar"
+      "$mainMod SHIFT, B, exec, pkill -SIGUSR2 waybar"
       "$mainMod SHIFT,       L, exec, hyprlock"
       # "$mainMod,       P, exec, hyprpicker -an"
       "$mainMod,       N, exec, swaync-client -t"

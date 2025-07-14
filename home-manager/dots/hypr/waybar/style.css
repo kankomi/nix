@@ -1,37 +1,45 @@
+@define-color background rgba(30, 30, 46, 0.5);
+@define-color accent #A6E3A1;
+@define-color text #89B4FA;
+@define-color green #26A65B;
+@define-color red #f53c3c;
+@define-color inactive #737984;
+
+
 window#waybar {
-  /* background: rgba(17, 17, 27, 0.7); */
-  background: rgba(30, 30, 46, 0.6);
-  /* color: #ebdbb2; */
-  color: #89B4FA;
-  border: none;
-  border-radius: 0;
-  font-family: "JetBrains Mono";
+  /* background: @background; */
+  background: none;
+  color: @text;
+  font-family: "JetBrainsMono", "JetBrainsMono Nerd Font Propo";
   font-weight: bold;
   font-size: 16px;
-  min-height: 0;
 }
 
 /* Workspace Buttons */
+#workspaces {
+  background: none;
+}
+
 #workspaces button label {
-  color: #A6E3A1;
+  color: @accent;
 }
 
 #battery.charging {
-  color: #26A65B;
+  color: @green;
 }
 
 #battery.critical {
-  color: #f53c3c;
+  color: @red;
 }
 
 @keyframes blink {
   to {
-    color: #89B4FA;
+    color: @text;
   }
 }
 
 #battery.warning:not(.charging) {
-  color: #f53c3c;
+  color: @red;
   animation: blink 0.5s steps(12) infinite alternate;
 }
 
@@ -41,17 +49,25 @@ window#waybar {
 #tray,
 #network,
 #bluetooth,
+#custom-tailscale,
 #custom-weather {
-  margin: 0 5px 0 0;
-  padding: 0 5px 0 0;
+  margin: 2px 5px;
+  padding: 0 5px;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+  margin: 2px 0;
+  padding: 0 4px;
+  background: @background;
+  border-radius: 15px;
 }
 
 #custom-tailscale {
-  color: #A6E3A1;
-  margin: 0 5px 0 0;
-  padding: 0 5px 0 0;
+  color: @text;
 }
 
-#custom-tailscale.stopped {
-  color: #737984;
+#custom-tailscale.disconnected {
+  color: @inactive;
 }

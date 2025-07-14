@@ -7,6 +7,7 @@ in
     pavucontrol
     blueman
     tailscaleScript
+    nerd-fonts.jetbrains-mono
   ];
 
   programs.waybar = {
@@ -16,8 +17,9 @@ in
       mainBar = {
         layer = "top";
         position = "top";
+        background = "none";
         height = 34;
-        # margin = "10px 10px";
+        margin = "5px 10px";
         modules-left = [ "hyprland/workspaces" ];
         modules-center = [
           "clock"
@@ -40,7 +42,7 @@ in
           format = "{icon}";
           format-icons = {
             "magic" = "";
-            "default" = "";
+            "default" = "";
             "active" = "";
           };
 
@@ -50,7 +52,7 @@ in
         };
 
         "custom/weather" = {
-          format = " {} ";
+          format = "{}";
           exec = "curl -s 'wttr.in/sonthofen?format=%c%t'";
           interval = 300;
           class = "weather";
@@ -80,7 +82,7 @@ in
             warning = 30;
             critical = 1;
           };
-          format = "{icon}  {capacity}%";
+          format = "{icon} {capacity}%";
           format-charging = " {capacity}%";
           format-alt = "{time} {icon}";
           format-icons = [
@@ -127,7 +129,11 @@ in
         };
 
         "custom/tailscale" = {
-          format = "";
+          format = "{icon}";
+          format-icons = {
+            "connected" = "";
+            "disconnected" = "";
+          };
           exec = "${tailscaleScript}/bin/tailscale_updown --status";
           on-click = "${tailscaleScript}/bin/tailscale_updown --toggle";
           exec-on-event = true;
