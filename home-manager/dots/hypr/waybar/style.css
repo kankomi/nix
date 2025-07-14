@@ -57,8 +57,11 @@ window#waybar {
 
 .modules-left,
 .modules-center,
-.modules-right {
-  margin: 2px 0;
+.modules-right,
+#custom1,
+#custom2,
+#custom3 {
+  margin: 2px 5px;
   padding: 0 4px;
   background: @background;
   border-radius: 15px;

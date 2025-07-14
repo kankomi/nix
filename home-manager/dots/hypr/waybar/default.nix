@@ -20,20 +20,52 @@ in
         background = "none";
         height = 34;
         margin = "5px 5px";
+        spacing = 4;
         modules-left = [ "hyprland/workspaces" ];
         modules-center = [
           "clock"
           # "hyprland/window"
         ];
         modules-right = [
+          # "group/custom1"
+          # "group/custom2"
+          # "group/custom3"
           "tray"
           "custom/tailscale"
-          # "bluetooth"
           "custom/weather"
+          # "bluetooth"
           "pulseaudio"
           "battery"
           # "network"
         ];
+        "group/custom1" = {
+          orient = "horizontal";
+          modules = [
+            "tray"
+            "custom/tailscale"
+          ];
+          drawer = {
+            transition-duration = 300;
+            transition-left-to-right = true;
+          };
+        };
+        "group/custom2" = {
+          orient = "horizontal";
+          modules = [
+            "custom/weather"
+          ];
+        };
+        "group/custom3" = {
+          orient = "horizontal";
+          modules = [
+            "pulseaudio"
+            "battery"
+          ];
+          drawer = {
+            transition-duration = 300;
+            transition-left-to-right = true;
+          };
+        };
         "hyprland/workspaces" = {
           disable-scroll = true;
           show-special = true;
