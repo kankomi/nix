@@ -17,6 +17,7 @@
 
   imports = [
     ./jellyfin
-    ./technitium
+    # ./technitium
+    ./homechart
   ];
 }

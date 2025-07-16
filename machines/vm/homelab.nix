@@ -5,7 +5,7 @@
     services = {
       enable = true;
       jellyfin.enable = true;
-      technitium.enable = true;
+      homechart.enable = true;
     };
   };
 }
