@@ -13,6 +13,11 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+  myapps.nixvim = {
+    enable = true;
+    featureWebDev = true;
+    featureCopilot = true;
+  };
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -37,10 +42,11 @@
     nextcloud-client
     spotify
     loupe # image viewer
+    libreoffice
 
     vlc
 
-    pkgs.davinci-resolve-studio
+    # pkgs.davinci-resolve-studio
 
     # Usb autoload
     udisks2
@@ -51,17 +57,14 @@
     gphoto2
     gphoto2fs
     libgphoto2
-    darktable
-    libreoffice
 
     # Dev
     lazygit
-    go
     gnumake
-    nodejs_22
     gcc
     rustc
     rustup
+    claude-code
 
     #go
     templ
