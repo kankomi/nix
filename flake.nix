@@ -60,6 +60,13 @@
           };
           modules = [ ./home-manager/machines/wsl.nix ];
         };
+        wsl_home = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = {
+            inherit inputs;
+          };
+          modules = [ ./home-manager/machines/wsl_home.nix ];
+        };
       };
     };
 }

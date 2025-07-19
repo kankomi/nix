@@ -11,7 +11,6 @@ let
 in
 {
   imports = [ inputs.nixvim.homeManagerModules.nixvim ];
-  # home.packages = cfg.packages;
 
   options.myapps.nixvim = {
     enable = lib.mkEnableOption {
@@ -64,6 +63,7 @@ in
       [
         figlet
         ripgrep
+        nodejs
       ]
       ++ lib.optionals cfg.featureWebDev [
         nodejs
@@ -332,10 +332,6 @@ in
           "coc-explorer"
           "@yaegassy/coc-nginx"
           "coc-nil"
-          "coc-pyright"
-          "coc-go"
-          "coc-tsserver"
-          "coc-css"
         ];
         suda_smart_edit = 1;
         "suda#nopass" = 1;
