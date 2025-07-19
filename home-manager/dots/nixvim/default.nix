@@ -100,6 +100,7 @@ in
           enable = true;
         };
         barbecue.enable = true;
+        markview.enable = true;
         project-nvim = {
           enable = true;
         };
