@@ -48,3 +48,7 @@ home-manager --flake .#wsl switch
 ## Configuring Cloudflare tunnels
 
 [Link](https://olai.dev/blog/nix-cloudflare-tunnels/)
+
+## Setup Git
+
+First login using `gh auth login` then in the git repository run `gh auth setup-git`.
