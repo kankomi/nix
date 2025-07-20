@@ -29,6 +29,7 @@ in
         home-manager.useUserPackages = true;
         home-manager.extraSpecialArgs = {
           inherit user inputs;
+          configName = "laptop";
         };
         home-manager.users.${user}.imports = [ ../home-manager/machines/laptop.nix ];
       }
@@ -46,6 +47,7 @@ in
         home-manager.useUserPackages = true;
         home-manager.extraSpecialArgs = {
           inherit user inputs;
+          configName = "vm";
         };
         home-manager.users.${user}.imports = [ ../home-manager/machines/vm.nix ];
       }
