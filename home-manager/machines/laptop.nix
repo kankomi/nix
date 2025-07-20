@@ -11,6 +11,7 @@
     ../dots/ghostty
   ];
 
+  configName = "laptop";
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   myapps.nixvim = {

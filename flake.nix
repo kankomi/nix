@@ -52,21 +52,28 @@
             ;
         }
       );
-      homeConfigurations = {
-        wsl = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = {
-            inherit inputs;
-          };
-          modules = [ ./home-manager/machines/wsl.nix ];
-        };
-        wsl_home = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = {
-            inherit inputs;
-          };
-          modules = [ ./home-manager/machines/wsl_home.nix ];
-        };
-      };
+      homeConfigurations =
+        let
+          configNames = [
+            "wsl_bosch"
+            "wsl_home"
+          ];
+          mkHomeConfig =
+            name:
+            home-manager.lib.homeManagerConfiguration {
+              inherit pkgs;
+              extraSpecialArgs = {
+                inherit inputs;
+                configName = name;
+              };
+              modules = [ ./home-manager/machines/${name}.nix ];
+            };
+        in
+        builtins.listToAttrs (
+          map (name: {
+            name = name;
+            value = mkHomeConfig name;
+          }) configNames
+        );
     };
 }

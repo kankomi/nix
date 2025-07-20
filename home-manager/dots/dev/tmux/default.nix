@@ -1,6 +1,6 @@
 {
   pkgs,
-  config,
+  configName,
   ...
 }:
 {
@@ -44,7 +44,7 @@
         bind-key c new-window -c "#{pane_current_path}"
       ''
       + (
-        if config.home.username == "gpa9bh" then
+        if builtins.match "^wsl.*" configName != null then
           ''
             bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "clip.exe"
             bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "clip.exe"

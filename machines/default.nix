@@ -4,7 +4,8 @@
   home-manager,
   user,
   ...
-}: let
+}:
+let
   # system = "x86_64-linux";
   #
   # pkgs = import nixpkgs {
@@ -13,11 +14,12 @@
   # };
   lib = nixpkgs.lib;
   agenixModule = inputs.agenix.nixosModules.default;
-in {
+in
+{
   inputs.agenix.url = "github:ryantm/agenix";
 
   laptop = lib.nixosSystem {
-    specialArgs = {inherit inputs user;};
+    specialArgs = { inherit inputs user; };
     modules = [
       ./laptop/configuration.nix
       agenixModule
@@ -28,12 +30,12 @@ in {
         home-manager.extraSpecialArgs = {
           inherit user inputs;
         };
-        home-manager.users.${user}.imports = [../home-manager/machines/laptop.nix];
+        home-manager.users.${user}.imports = [ ../home-manager/machines/laptop.nix ];
       }
     ];
   };
   vm = lib.nixosSystem {
-    specialArgs = {inherit inputs user;};
+    specialArgs = { inherit inputs user; };
     modules = [
       ../homelab
       ./vm/configuration.nix
@@ -45,7 +47,7 @@ in {
         home-manager.extraSpecialArgs = {
           inherit user inputs;
         };
-        home-manager.users.${user}.imports = [../home-manager/machines/vm.nix];
+        home-manager.users.${user}.imports = [ ../home-manager/machines/vm.nix ];
       }
     ];
   };
