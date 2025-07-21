@@ -10,14 +10,14 @@
       filetypes = [ "tf" ];
       initializationOptions = { };
     };
-    # golang = {
-    #   command = "gopls";
-    #   rootPatterns = [ "go.mod" ];
-    #   filetypes = [
-    #     "go"
-    #     "templ"
-    #   ];
-    # };
+    golang = {
+      command = "gopls";
+      rootPatterns = [ "go.mod" ];
+      filetypes = [
+        "go"
+        "templ"
+      ];
+    };
   };
   eslint.autoFixOnSave = true;
   inlayHint.enable = false;
@@ -118,5 +118,8 @@
     D = "delete";
     ma = "addFile";
     mA = "addDirectory";
+  };
+  emmet.includeLanguages = {
+    "templ" = "html";
   };
 }

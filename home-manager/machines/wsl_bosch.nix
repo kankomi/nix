@@ -28,30 +28,37 @@
   # release notes.
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
+  # configure nixvim
+  myapps.nixvim = {
+    enable = true;
+    featureWebDev = true;
+    featureGo = true;
+    featurePython = true;
+    featureCopilot = true;
+    featureTerraform = false;
+  };
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
     # shell
     tldr
+    fastfetch
 
     # Development
-    # nodejs_23
-    yarn
-    python311
     # rustup
     cargo
-    go
-    templ
-    air
     zig
     devenv
 
     age
 
     # tools
-    azure-cli
+    # azure-cli
     azure-functions-core-tools
     ffmpeg
+
+    claude-code
 
     # libraries
     libcxx

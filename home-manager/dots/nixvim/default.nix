@@ -75,8 +75,11 @@ in
         angular-language-server
       ]
       ++ lib.optionals cfg.featureGo [
+        go
         gopls
         gofumpt
+        air
+        templ
       ]
       ++ lib.optionals cfg.featureTerraform [
         terraform-ls
@@ -85,10 +88,10 @@ in
         tflint
       ]
       ++ lib.optionals cfg.featurePython [
-        python3
-        python3Packages.pylint
-        python3Packages.black
-        python3Packages.isort
+        python311
+        python311Packages.pylint
+        python311Packages.black
+        python311Packages.isort
       ];
 
     programs.nixvim = {
@@ -174,11 +177,12 @@ in
         [
           llm-nvim
           coc-nvim
-          coc-snippets
+          # coc-snippets
           coc-markdownlint
           vim-suda
           vim-tmux-navigator
           lazygit-nvim
+          friendly-snippets
         ]
         ++ lib.optionals cfg.featureWebDev [
           coc-tsserver
@@ -188,22 +192,19 @@ in
           coc-json
           coc-emmet
           coc-eslint
+          tailwindcss-colors-nvim
         ]
         ++ lib.optionals cfg.featureGo [
           coc-go
+          templ-vim
+          tailwindcss-colors-nvim
         ]
         ++ lib.optionals cfg.featureTerraform [
-          coc-terraform
+          terraform-ls
         ]
         ++ lib.optionals cfg.featureCopilot [
           copilot-vim
           CopilotChat-nvim
-        ]
-        ++ lib.optionals cfg.featurePython [
-          coc-python
-          coc-pylsp
-          coc-black
-          coc-isort
         ];
 
       opts = {
@@ -388,6 +389,22 @@ in
         endfunction
       '';
       keymaps = [
+        {
+          mode = "i";
+          key = "jj";
+          action = "<Esc>";
+          options = {
+            silent = true;
+          };
+        }
+        {
+          mode = "i";
+          key = "jk";
+          action = "<Esc>";
+          options = {
+            silent = true;
+          };
+        }
         {
           mode = "n";
           key = "<leader>lg";
