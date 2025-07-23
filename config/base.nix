@@ -3,6 +3,13 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Dynamic libraries for unpackaged programs
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    glibc
+    libcxx
+  ];
+
   nix = {
     # package = pkgs.nixFlakes;
     # package = nixVersions.stable;
