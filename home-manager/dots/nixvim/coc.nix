@@ -7,8 +7,12 @@
     terraform = {
       command = "terraform-ls";
       args = [ "serve" ];
-      filetypes = [ "tf" ];
+      filetypes = [
+        "terraform"
+        "tf"
+      ];
       initializationOptions = { };
+      settings = { };
     };
     golang = {
       command = "gopls";
@@ -38,6 +42,7 @@
     "tf"
     "go"
     "templ"
+    "html"
   ];
   nil.server.path = "${pkgs.nil}/bin/nil";
   nil.formatting.command = [ "${pkgs.nixfmt-rfc-style}/bin/nixfmt" ];

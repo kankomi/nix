@@ -1,0 +1,37 @@
+{
+  number = true;
+  relativenumber = true;
+  syntax = "enable";
+  fileencodings = "utf-8,sjis,euc-jp,latin";
+  encoding = "utf-8";
+  title = true;
+  autoindent = true;
+  background = "dark";
+  backup = false;
+  hlsearch = true;
+  showcmd = true;
+  cmdheight = 1;
+  laststatus = 2;
+  scrolloff = 10;
+  expandtab = true;
+  shell = "zsh";
+  backupskip = "/tmp/*,/private/tmp/*";
+  inccommand = "split";
+  ruler = false;
+  showmatch = false;
+  lazyredraw = true;
+  ignorecase = true;
+  smarttab = true;
+  shiftwidth = 2;
+  tabstop = 2;
+  ai = true;
+  ci = true;
+  wrap = true;
+  backspace = "start,eol,indent";
+  path = "vim.opts.path \+ **";
+  wildignore = "vim.opts.wildignore \+ */node_modules/*";
+  cursorline = true;
+  exrc = true;
+  mouse = "a";
+  suffixesadd = ".js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md";
+}
