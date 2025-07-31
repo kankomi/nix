@@ -13,17 +13,13 @@
     ../dots/dev/tmux
     ../dots/nixvim
     ../dots/btop
+    ../dots/gnome
+    ../dots/hypr/alacritty.nix
   ];
   # Home Manager needs a bit of inffrmation about you and the paths it should
   # manage.
   home.username = "gpa9bh";
   home.homeDirectory = "/home/${config.home.username}";
-
-  myapps.nixvim = {
-    enable = true;
-    featureWebDev = true;
-    featureCopilot = true;
-  };
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -34,20 +30,44 @@
   # release notes.
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
+  # configure nixvim
+  myapps.nixvim = {
+    enable = true;
+    featureWebDev = true;
+    featureGo = true;
+    featurePython = true;
+    featureCopilot = true;
+    featureTerraform = true;
+  };
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
     # shell
     tldr
+    fastfetch
+
+    firefox
+    alacritty
 
     # Development
+    # rustup
+    cargo
+    # zig
+    devenv
+
     age
 
     # tools
+    # azure-cli
+    azure-functions-core-tools
+    ffmpeg
+    lazygit
+
     claude-code
 
     # libraries
-    # libcxx
+    libcxx
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
