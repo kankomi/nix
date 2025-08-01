@@ -60,15 +60,7 @@
 
     # Dev
     lazygit
-    gnumake
-    gcc
-    rustc
-    rustup
     claude-code
-
-    #go
-    templ
-    air
 
     #wine
     wineWowPackages.stable

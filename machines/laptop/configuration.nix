@@ -8,6 +8,8 @@
     ../_common
   ];
 
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.extraModprobeConfig = ''
     options iwlwifi 11n_disable=8
@@ -18,6 +20,7 @@
     vulkan-tools
     clinfo
   ];
+
   services.dbus.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
   environment.variables = {
