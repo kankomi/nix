@@ -114,6 +114,7 @@ in
             warning = 30;
             critical = 1;
           };
+          interval = 10;
           format = "{icon} {capacity}%";
           format-charging = " {capacity}%";
           format-alt = "{time} {icon}";
