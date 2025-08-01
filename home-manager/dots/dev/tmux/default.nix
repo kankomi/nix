@@ -27,6 +27,13 @@
         set -g status-left ""
         set -g status-right "#{E:@catppuccin_status_application} #{E:@catppuccin_status_session}"
 
+        # Active pane border styling
+        set -g pane-border-style 'fg=colour235'
+        set -g pane-active-border-style 'fg=colour148 bg=default'
+        set -g pane-border-lines heavy
+        set -g pane-border-status top
+        set -g pane-border-format " #{?pane_active,#[fg=colour148]● ,  }#P: #{pane_current_command} "
+
         set-option -s set-clipboard off
 
         set-option -g status-position top
