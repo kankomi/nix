@@ -73,6 +73,7 @@ in
         figlet
         ripgrep
         nodejs
+        pre-commit
       ]
       ++ lib.optionals cfg.featureWebDev [
         nodejs
@@ -95,6 +96,8 @@ in
         terraform
         terraform-docs
         tflint
+        jq
+        tfsec
       ]
       ++ lib.optionals cfg.featurePython [
         python311
