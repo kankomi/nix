@@ -35,37 +35,36 @@ in
       st = "status";
     };
     package = pkgs.gitFull; # or pkgs.git with pkgs.git-credential-libsecret if desired
-    extraConfig =
-      {
-        init = {
-          defaultBranch = "main";
-        };
-        pull = {
-          rebase = true;
-        };
-        push = {
-          autoSetupRemote = true;
-        };
-        rebase = {
-          autoStash = true;
-        };
-        core = {
-          whitespace = "trailing-space,space-before-tab";
-        };
-      }
-      // (
-        if builtins.match "^wsl.*" configName != null then
-          {
-            credential = {
-              helper = "manager";
-            };
-          }
-        else
-          {
-            credential = {
-              helper = "libsecret";
-            };
-          }
-      );
+    extraConfig = {
+      init = {
+        defaultBranch = "main";
+      };
+      pull = {
+        rebase = true;
+      };
+      push = {
+        autoSetupRemote = true;
+      };
+      rebase = {
+        autoStash = true;
+      };
+      core = {
+        whitespace = "trailing-space,space-before-tab";
+      };
+    }
+    // (
+      if builtins.match "^wsl.*" configName != null then
+        {
+          credential = {
+            helper = "store";
+          };
+        }
+      else
+        {
+          credential = {
+            helper = "libsecret";
+          };
+        }
+    );
   };
 }
