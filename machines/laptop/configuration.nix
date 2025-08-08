@@ -107,6 +107,15 @@
     };
   };
 
+  # Enable printing support.
+  services.printing.enable = true;
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+  services.printing.drivers = [ pkgs.hplipWithPlugin ];
+
   hardware.bluetooth.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
