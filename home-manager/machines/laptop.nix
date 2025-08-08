@@ -43,6 +43,7 @@
     spotify
     loupe # image viewer
     libreoffice
+    blender
 
     vlc
 
