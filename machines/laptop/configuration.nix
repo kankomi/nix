@@ -15,6 +15,11 @@
     options iwlwifi 11n_disable=8
   '';
 
+  hardware.enableRedistributableFirmware = true;
+  hardware.firmware = with pkgs; [
+    linux-firmware
+  ];
+
   environment.systemPackages = with pkgs; [
     mesa-demos
     vulkan-tools
@@ -80,6 +85,28 @@
   boot.kernelModules = [ "fuse" ];
 
   networking.hostName = "laptop"; # Define your hostname.
+  networking.networkmanager = {
+    enable = true;
+    wifi = {
+      powersave = false;
+      macAddress = "preserve";
+    };
+    settings = {
+      main = {
+        "no-auto-default" = "*";
+      };
+
+      connectivity.enabled = "false";
+
+      connection = {
+        "ipv6.method" = "ignore";
+        "connection.llmnr" = "2";
+        "connection.mdns" = "2";
+        "wifi.powersave" = "2";
+      };
+    };
+  };
+
   hardware.bluetooth.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
