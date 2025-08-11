@@ -104,6 +104,7 @@ in
         python311Packages.pylint
         python311Packages.black
         python311Packages.isort
+        uv
       ];
 
     programs.nixvim = {

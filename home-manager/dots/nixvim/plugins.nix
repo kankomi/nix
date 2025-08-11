@@ -1,4 +1,8 @@
-{ pkgs, lib, cfg }:
+{
+  pkgs,
+  lib,
+  cfg,
+}:
 {
   plugins = {
     notify.enable = true;
@@ -106,8 +110,12 @@
     ++ lib.optionals cfg.featureTerraform [
       vim-terraform
     ]
+    ++ lib.optionals cfg.featurePython [
+      coc-pyright
+    ]
     ++ lib.optionals cfg.featureCopilot [
       copilot-vim
       CopilotChat-nvim
     ];
 }
+
