@@ -48,7 +48,6 @@
     # Development
     # rustup
     cargo
-    zig
     devenv
 
     age
