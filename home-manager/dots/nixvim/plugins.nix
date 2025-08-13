@@ -20,6 +20,30 @@
     telescope = {
       enable = true;
     };
+    treesitter = {
+      enable = true;
+      settings = {
+        ensure_installed =
+          [ ]
+          ++ lib.optionals cfg.featureWebDev [
+            "angular"
+            "typescript"
+            "tsx"
+            "html"
+            "css"
+            "javascript"
+          ]
+          ++ lib.optionals cfg.featureGo [
+            "go"
+          ]
+          ++ lib.optionals cfg.featurePython [
+            "python"
+          ]
+          ++ lib.optionals cfg.featureTerraform [
+            "terraform"
+          ];
+      };
+    };
     alpha = {
       enable = true;
       theme = "startify";
@@ -69,6 +93,7 @@
           "scss"
           "html"
           "templ"
+          "tsx"
         ];
       };
     };
@@ -85,7 +110,6 @@
     [
       llm-nvim
       coc-nvim
-      # coc-snippets
       coc-markdownlint
       vim-suda
       vim-tmux-navigator
@@ -118,4 +142,3 @@
       CopilotChat-nvim
     ];
 }
-

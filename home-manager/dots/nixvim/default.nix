@@ -74,6 +74,7 @@ in
         ripgrep
         nodejs
         pre-commit
+        tree-sitter
       ]
       ++ lib.optionals cfg.featureWebDev [
         nodejs
