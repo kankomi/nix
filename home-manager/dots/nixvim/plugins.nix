@@ -125,6 +125,7 @@
       coc-emmet
       coc-eslint
       tailwindcss-colors-nvim
+      tailwind-tools-nvim
     ]
     ++ lib.optionals cfg.featureGo [
       coc-go

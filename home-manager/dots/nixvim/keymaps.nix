@@ -113,7 +113,7 @@
   }
   {
     mode = "n";
-    key = ";;";
+    key = "<leader>ss";
     action = ":call CheckForExplorer()<CR> <cmd>Telescope buffers<cr>";
     options = {
       silent = true;
@@ -273,3 +273,4 @@
     };
   }
 ]
+

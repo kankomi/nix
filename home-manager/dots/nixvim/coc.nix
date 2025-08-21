@@ -22,6 +22,17 @@
         "templ"
       ];
     };
+    languageserver = {
+      tailwindcss = {
+        command = "tailwindcss-language-server";
+        filetypes = [
+          "html"
+          "jsx"
+          "tsx"
+        ];
+        rootPatterns = [ "tailwind.config.*" ];
+      };
+    };
   };
   eslint.autoFixOnSave = true;
   inlayHint.enable = false;

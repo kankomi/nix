@@ -84,6 +84,7 @@ in
         prettier
         typescript-language-server
         angular-language-server
+        tailwindcss-language-server
       ]
       ++ lib.optionals cfg.featureGo [
         go
