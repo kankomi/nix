@@ -1,10 +1,19 @@
 {
   configName,
+  pkgs,
   ...
 }:
 {
   imports = [
     ../starship
+  ];
+
+  home.packages = with pkgs; [
+    fzf
+    fd
+    ripgrep
+    zoxide
+    pass
   ];
 
   programs = {
@@ -21,7 +30,6 @@
         l = "ls -lh";
         ll = "l";
         la = "ls -la";
-        npm = "pnpm";
         mux = "tmuxinator";
       }
       // (
@@ -56,6 +64,8 @@
             set -a; source /etc/environment; set +a;
 
             eval "$(starship init zsh)"
+            eval "$(zoxide init --cmd cd zsh)"
+            source <(fzf --zsh)
           ''
         else
           "";
