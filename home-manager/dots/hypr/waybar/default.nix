@@ -32,7 +32,7 @@ in
           # "group/custom3"
           "tray"
           "custom/tailscale"
-          "custom/weather"
+          # "custom/weather"
           # "bluetooth"
           "pulseaudio"
           "battery"
@@ -85,7 +85,7 @@ in
 
         "custom/weather" = {
           format = "{}";
-          exec = "curl -s 'wttr.in/sonthofen?format=%c%t'";
+          exec = "curl -s 'wttr.in/Sonthofen?format=%c%t'";
           interval = 300;
           class = "weather";
         };

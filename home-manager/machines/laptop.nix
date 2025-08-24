@@ -62,6 +62,8 @@
     # Dev
     lazygit
     claude-code
+    libcxx
+    devenv
 
     #wine
     wineWowPackages.stable

@@ -75,6 +75,7 @@ in
         nodejs
         pre-commit
         tree-sitter
+        gcc
       ]
       ++ lib.optionals cfg.featureWebDev [
         nodejs

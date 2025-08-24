@@ -84,6 +84,33 @@
   services.gvfs.enable = true;
   boot.kernelModules = [ "fuse" ];
 
+  # setup hibernation
+  boot.kernelParams = [
+    "resume_offset=74946560"
+    "mem_sleep_default=deep"
+  ];
+  boot.resumeDevice = "/dev/disk/by-uuid/2c8ff523-523b-40d8-ab8c-418eea6cfae9";
+  powerManagement.enable = true;
+
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 16 * 1024; # 16GB in MB
+    }
+  ];
+  services.power-profiles-daemon.enable = true;
+  # Suspend first then hibernate when closing the lid
+  services.logind.lidSwitch = "suspend-then-hibernate";
+  # Hibernate on power button pressed
+  services.logind.powerKey = "hibernate";
+  services.logind.powerKeyLongPress = "poweroff";
+
+  # Define time delay for hibernation
+  systemd.sleep.extraConfig = ''
+    HibernateDelaySec=30m
+    SuspendState=mem
+  '';
+
   networking.hostName = "laptop"; # Define your hostname.
   networking.networkmanager = {
     enable = true;
