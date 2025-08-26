@@ -11,9 +11,9 @@
     };
     barbecue.enable = true;
     markview.enable = true;
-    project-nvim = {
-      enable = true;
-    };
+    # project-nvim = {
+    #   enable = true;
+    # };
     leap = {
       enable = true;
     };
