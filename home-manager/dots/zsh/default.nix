@@ -1,6 +1,7 @@
 {
   configName,
   pkgs,
+  lib,
   ...
 }:
 {
@@ -14,6 +15,7 @@
     ripgrep
     zoxide
     pass
+    yazi
   ];
 
   programs = {
@@ -57,18 +59,29 @@
           }
       );
 
-      initContent =
+      initContent = ''
+        y() {
+          local tmp cwd
+          tmp=$(mktemp -t yazi-cwd.XXXXXX)
+          trap 'rm -f -- "$tmp"' EXIT
+          yazi "$@" --cwd-file="$tmp"
+          IFS= read -r -d \'\' cwd < "$tmp"
+          [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+        }
+      ''
+      + (
         if configName == "wsl_bosch" then
           ''
-            source $HOME/.nix-profile/etc/profile.d/nix.sh
-            set -a; source /etc/environment; set +a;
+            source "$HOME/.nix-profile/etc/profile.d/nix.sh"
+            set -a; source /etc/environment; set +a
 
             eval "$(starship init zsh)"
             eval "$(zoxide init --cmd cd zsh)"
             source <(fzf --zsh)
           ''
         else
-          "";
+          ""
+      );
     };
   };
 }
