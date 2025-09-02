@@ -56,6 +56,7 @@
     # azure-cli
     azure-functions-core-tools
     ffmpeg
+    lazydocker
 
     claude-code
 
