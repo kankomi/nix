@@ -117,7 +117,9 @@ in
       lsp.servers.angularls.enable = cfg.featureWebDev;
       lsp.servers.terraform_lsp.enable = cfg.featureTerraform;
 
-      inherit (plugins) plugins extraPlugins;
+      # inherit (plugins) plugins extraPlugins;
+      plugins = plugins.plugins;
+      extraPlugins = plugins.extraPlugins;
       keymaps = keymaps;
       opts = options;
       autoCmd = autocmds;

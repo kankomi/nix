@@ -115,6 +115,7 @@
       vim-tmux-navigator
       lazygit-nvim
       friendly-snippets
+      outline-nvim
     ]
     ++ lib.optionals cfg.featureWebDev [
       coc-tsserver

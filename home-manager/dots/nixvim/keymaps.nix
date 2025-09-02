@@ -272,5 +272,12 @@
       silent = true;
     };
   }
+  {
+    mode = "n";
+    key = "<leader>o";
+    action = "<cmd>Outline<cr>";
+    options = {
+      silent = true;
+    };
+  }
 ]
-
