@@ -36,7 +36,7 @@
         end,
         group = highlight_group,
         pattern = '*',
-        })
+    })
   '';
 
   extraConfigVim = ''

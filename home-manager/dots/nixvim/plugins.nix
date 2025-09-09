@@ -11,14 +11,26 @@
     };
     barbecue.enable = true;
     markview.enable = true;
-    # project-nvim = {
-    #   enable = true;
-    # };
     leap = {
       enable = true;
     };
     telescope = {
       enable = true;
+    };
+    conform-nvim = {
+      enable = true;
+      settings = {
+        formatter_by_ft = {
+          go = [ "gofumpt" ];
+          python = [
+            "ruff_fix"
+            "ruff_format"
+            "ruff_organize_imports"
+          ];
+          tf = [ "terraform-fmt" ];
+          templ = [ "goimports" ];
+        };
+      };
     };
     treesitter = {
       enable = true;

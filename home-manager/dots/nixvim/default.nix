@@ -107,7 +107,10 @@ in
         python311Packages.pylint
         python311Packages.black
         python311Packages.isort
+        python311Packages.ruff
+        python311Packages.autopep8
         uv
+        ruff
       ];
 
     programs.nixvim = {
